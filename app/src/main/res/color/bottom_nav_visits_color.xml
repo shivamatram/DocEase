@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    
+    <!-- Bottom navigation colors for Visits screen -->
+    <!-- Active: Teal background pill with dark icon/text -->
+    <item android:color="@color/docease_primary" android:state_checked="true" />
+    <item android:color="#9E9E9E" android:state_checked="false" />
+    
+</selector>

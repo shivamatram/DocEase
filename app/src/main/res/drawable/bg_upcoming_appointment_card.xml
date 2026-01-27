@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    
+    <!-- Upcoming appointment card teal gradient -->
+    <gradient
+        android:angle="135"
+        android:startColor="#4DD0C9"
+        android:endColor="#3DBEB7"
+        android:type="linear" />
+    <corners android:radius="20dp" />
+    
+</shape>

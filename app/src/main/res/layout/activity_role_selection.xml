@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/bg_splash_gradient"
+    android:padding="24dp"
+    android:layout_marginStart="10dp"
+    android:layout_marginEnd="10dp"
+    android:fitsSystemWindows="true"
+    tools:context=".ui.auth.RoleSelectionActivity">
+
+    <!-- HEADER SECTION -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardSmallIcon"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="24dp"
+        app:cardBackgroundColor="@color/docease_background"
+        app:cardCornerRadius="14dp"
+        app:cardElevation="4dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="8dp">
+
+            <View
+                android:id="@+id/viewSmallInner"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@drawable/bg_icon_container_inner"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_medical_bag"
+                android:contentDescription="@string/app_name"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- TITLE -->
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="Welcome to DocEase"
+        android:textColor="@color/docease_text_primary"
+        android:textSize="28sp"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/tvSubtitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="sans-serif"
+        android:text="Please select your role to continue"
+        android:textColor="@color/docease_text_secondary"
+        android:textSize="16sp"/>
+
+    <!-- DOCTOR CARD -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardDoctor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        app:cardBackgroundColor="@android:color/transparent"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="0dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/selector_role_card"
+            android:padding="20dp">
+
+            <View
+                android:id="@+id/viewDoctorIconBg"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:background="@drawable/bg_icon_container_inner"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+            <ImageView
+                android:id="@+id/ivDoctorIcon"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@drawable/ic_doctor"
+                android:contentDescription="Doctor"
+                app:tint="@color/docease_icon_white"
+                app:layout_constraintTop_toTopOf="@id/viewDoctorIconBg"
+                app:layout_constraintBottom_toBottomOf="@id/viewDoctorIconBg"
+                app:layout_constraintStart_toStartOf="@id/viewDoctorIconBg"
+                app:layout_constraintEnd_toEndOf="@id/viewDoctorIconBg"/>
+
+            <TextView
+                android:id="@+id/tvDoctorTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="I'm a Doctor"
+                android:textColor="@color/docease_text_primary"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@id/viewDoctorIconBg"
+                app:layout_constraintTop_toTopOf="@id/viewDoctorIconBg"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <TextView
+                android:id="@+id/tvDoctorDesc"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="4dp"
+                android:text="Manage appointments &amp; patients"
+                android:textColor="@color/docease_text_secondary"
+                android:textSize="14sp"
+                app:layout_constraintStart_toEndOf="@id/viewDoctorIconBg"
+                app:layout_constraintTop_toBottomOf="@id/tvDoctorTitle"
+                app:layout_constraintEnd_toEndOf="parent"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- PATIENT CARD -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardPatient"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:cardBackgroundColor="@android:color/transparent"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="0dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/selector_role_card"
+            android:padding="20dp">
+
+            <View
+                android:id="@+id/viewPatientIconBg"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:background="@drawable/bg_icon_container_inner"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+            <ImageView
+                android:id="@+id/ivPatientIcon"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@drawable/ic_patient"
+                android:contentDescription="Patient"
+                app:tint="@color/docease_icon_white"
+                app:layout_constraintTop_toTopOf="@id/viewPatientIconBg"
+                app:layout_constraintBottom_toBottomOf="@id/viewPatientIconBg"
+                app:layout_constraintStart_toStartOf="@id/viewPatientIconBg"
+                app:layout_constraintEnd_toEndOf="@id/viewPatientIconBg"/>
+
+            <TextView
+                android:id="@+id/tvPatientTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="I'm a Patient"
+                android:textColor="@color/docease_text_primary"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@id/viewPatientIconBg"
+                app:layout_constraintTop_toTopOf="@id/viewPatientIconBg"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <TextView
+                android:id="@+id/tvPatientDesc"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="4dp"
+                android:text="Book appointments &amp; consult doctors"
+                android:textColor="@color/docease_text_secondary"
+                android:textSize="14sp"
+                app:layout_constraintStart_toEndOf="@id/viewPatientIconBg"
+                app:layout_constraintTop_toBottomOf="@id/tvPatientTitle"
+                app:layout_constraintEnd_toEndOf="parent"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- CONTINUE BUTTON -->
+    <Button
+        android:id="@+id/btnContinue"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/selector_button_primary"
+        android:enabled="false"
+        android:text="Continue"
+        android:textAllCaps="false"
+        android:textColor="@color/docease_button_text_primary"
+        android:textSize="16sp"/>
+
+    <!-- FOOTER -->
+    <TextView
+        android:id="@+id/tvFooter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_gravity="center_horizontal"
+        android:text="By continuing, you agree to our Terms of Service"
+        android:textColor="@color/docease_text_hint"
+        android:textSize="12sp"/>
+
+</LinearLayout>

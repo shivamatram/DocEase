@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="120dp"
+    android:height="120dp"
+    android:viewportWidth="120"
+    android:viewportHeight="120">
+    
+    <!-- Lock with Medical Cross Illustration -->
+    
+    <!-- Lock Body - Main Rectangle -->
+    <path
+        android:fillColor="#4DD0C9"
+        android:pathData="M30,55 L90,55 L90,100 C90,105 85,110 80,110 L40,110 C35,110 30,105 30,100 Z"/>
+    
+    <!-- Lock Body Highlight -->
+    <path
+        android:fillColor="#5ED9D2"
+        android:pathData="M30,55 L50,55 L50,110 L40,110 C35,110 30,105 30,100 Z"
+        android:fillAlpha="0.5"/>
+    
+    <!-- Lock Shackle (U-shape) -->
+    <path
+        android:fillColor="#3DBDB6"
+        android:pathData="M40,55 L40,40 C40,25 50,15 60,15 C70,15 80,25 80,40 L80,55 L72,55 L72,40 C72,30 67,23 60,23 C53,23 48,30 48,40 L48,55 Z"/>
+    
+    <!-- Medical Cross - Vertical Bar -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M55,68 L65,68 L65,97 L55,97 Z"/>
+    
+    <!-- Medical Cross - Horizontal Bar -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M45,77 L75,77 L75,87 L45,87 Z"/>
+    
+    <!-- Keyhole Circle -->
+    <path
+        android:fillColor="#3DBDB6"
+        android:pathData="M60,82 m-8,0 a8,8 0,1 1,16 0 a8,8 0,1 1,-16 0"
+        android:fillAlpha="0.3"/>
+    
+    <!-- Decorative Dots - Top Left -->
+    <path
+        android:fillColor="#4DD0C9"
+        android:fillAlpha="0.4"
+        android:pathData="M15,30 m-4,0 a4,4 0,1 1,8 0 a4,4 0,1 1,-8 0"/>
+    
+    <path
+        android:fillColor="#4DD0C9"
+        android:fillAlpha="0.3"
+        android:pathData="M22,18 m-3,0 a3,3 0,1 1,6 0 a3,3 0,1 1,-6 0"/>
+    
+    <!-- Decorative Dots - Top Right -->
+    <path
+        android:fillColor="#4DD0C9"
+        android:fillAlpha="0.4"
+        android:pathData="M105,30 m-4,0 a4,4 0,1 1,8 0 a4,4 0,1 1,-8 0"/>
+    
+    <path
+        android:fillColor="#4DD0C9"
+        android:fillAlpha="0.3"
+        android:pathData="M98,18 m-3,0 a3,3 0,1 1,6 0 a3,3 0,1 1,-6 0"/>
+    
+    <!-- Decorative Dots - Bottom -->
+    <path
+        android:fillColor="#4DD0C9"
+        android:fillAlpha="0.25"
+        android:pathData="M20,95 m-3,0 a3,3 0,1 1,6 0 a3,3 0,1 1,-6 0"/>
+    
+    <path
+        android:fillColor="#4DD0C9"
+        android:fillAlpha="0.25"
+        android:pathData="M100,95 m-3,0 a3,3 0,1 1,6 0 a3,3 0,1 1,-6 0"/>
+    
+</vector>

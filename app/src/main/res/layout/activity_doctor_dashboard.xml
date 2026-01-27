@@ -1,0 +1,466 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F8F9FA"
+    android:fitsSystemWindows="true"
+    tools:context=".ui.dashboard.DoctorDashboardActivity">
+
+    <!-- Main Content -->
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="60dp"
+        android:clipToPadding="false"
+        android:fillViewport="true"
+        android:overScrollMode="never"
+        android:scrollbars="none">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="20dp"
+            android:paddingTop="16dp"
+            android:paddingBottom="100dp">
+
+            <!-- ==================== HEADER SECTION ==================== -->
+
+            <!-- Profile Avatar Container -->
+            <FrameLayout
+                android:id="@+id/profileContainer"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <!-- Profile Avatar -->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/avatarCard"
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    app:cardCornerRadius="28dp"
+                    app:cardElevation="4dp"
+                    app:strokeWidth="0dp">
+
+                    <ImageView
+                        android:id="@+id/doctorAvatar"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/ic_avatar_placeholder"
+                        android:contentDescription="Doctor Profile" />
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- Online Status Indicator -->
+                <View
+                    android:id="@+id/onlineIndicator"
+                    android:layout_width="14dp"
+                    android:layout_height="14dp"
+                    android:layout_gravity="bottom|end"
+                    android:background="@drawable/bg_online_indicator" />
+
+            </FrameLayout>
+
+            <!-- Date Text -->
+            <TextView
+                android:id="@+id/dateText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="14dp"
+                android:fontFamily="@font/poppins_regular"
+                android:textColor="@color/docease_text_secondary"
+                android:textSize="13sp"
+                app:layout_constraintBottom_toTopOf="@id/greetingText"
+                app:layout_constraintEnd_toStartOf="@id/notificationButton"
+                app:layout_constraintStart_toEndOf="@id/profileContainer"
+                app:layout_constraintTop_toTopOf="@id/profileContainer"
+                app:layout_constraintVertical_chainStyle="packed"
+                tools:text="Oct 24, 2023" />
+
+            <!-- Greeting Text -->
+            <TextView
+                android:id="@+id/greetingText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="14dp"
+                android:layout_marginTop="2dp"
+                android:ellipsize="end"
+                android:fontFamily="@font/poppins_bold"
+                android:maxLines="1"
+                android:textColor="@color/docease_text_primary"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="@id/profileContainer"
+                app:layout_constraintEnd_toStartOf="@id/notificationButton"
+                app:layout_constraintStart_toEndOf="@id/profileContainer"
+                app:layout_constraintTop_toBottomOf="@id/dateText"
+                tools:text="Good Morning, Dr. Smith" />
+
+            <!-- Notification Button -->
+            <FrameLayout
+                android:id="@+id/notificationButton"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="@drawable/bg_circular_button"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackgroundBorderless"
+                app:layout_constraintBottom_toBottomOf="@id/profileContainer"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/profileContainer">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_notification"
+                    android:contentDescription="Notifications" />
+
+                <!-- Notification Badge (optional) -->
+                <TextView
+                    android:id="@+id/notificationBadge"
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:layout_gravity="top|end"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginEnd="4dp"
+                    android:background="@drawable/bg_notification_badge"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:gravity="center"
+                    android:textColor="@color/docease_background"
+                    android:textSize="10sp"
+                    android:visibility="gone"
+                    tools:text="3"
+                    tools:visibility="visible" />
+
+            </FrameLayout>
+
+            <!-- ==================== QUICK STATS SECTION ==================== -->
+
+            <!-- Quick Stats Title -->
+            <TextView
+                android:id="@+id/quickStatsTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="Quick Stats"
+                android:textColor="@color/docease_text_primary"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/profileContainer" />
+
+            <!-- Stats Cards Container -->
+            <LinearLayout
+                android:id="@+id/statsContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:orientation="horizontal"
+                android:weightSum="3"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/quickStatsTitle">
+
+                <!-- Stat Card 1: Patients (Highlighted) -->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/statCardPatients"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:layout_weight="1"
+                    app:cardBackgroundColor="@color/docease_primary"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="4dp"
+                    app:strokeWidth="0dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:paddingVertical="20dp">
+
+                        <!-- Icon Container -->
+                        <FrameLayout
+                            android:layout_width="42dp"
+                            android:layout_height="42dp"
+                            android:background="@drawable/bg_stat_icon_highlight">
+
+                            <ImageView
+                                android:layout_width="22dp"
+                                android:layout_height="22dp"
+                                android:layout_gravity="center"
+                                android:src="@drawable/ic_patients"
+                                android:contentDescription="Patients" />
+
+                        </FrameLayout>
+
+                        <!-- Number -->
+                        <TextView
+                            android:id="@+id/statPatientsNumber"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:fontFamily="@font/poppins_bold"
+                            android:textColor="@color/docease_background"
+                            android:textSize="24sp"
+                            tools:text="42" />
+
+                        <!-- Label -->
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins_regular"
+                            android:text="Patients"
+                            android:textColor="#B8E8E5"
+                            android:textSize="13sp" />
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- Stat Card 2: Appointments -->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/statCardAppointments"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="4dp"
+                    android:layout_weight="1"
+                    app:cardBackgroundColor="@color/docease_background"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="4dp"
+                    app:strokeWidth="0dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:paddingVertical="20dp">
+
+                        <!-- Icon Container -->
+                        <FrameLayout
+                            android:layout_width="42dp"
+                            android:layout_height="42dp"
+                            android:background="@drawable/bg_stat_icon_normal">
+
+                            <ImageView
+                                android:layout_width="22dp"
+                                android:layout_height="22dp"
+                                android:layout_gravity="center"
+                                android:src="@drawable/ic_calendar"
+                                android:contentDescription="Appointments" />
+
+                        </FrameLayout>
+
+                        <!-- Number -->
+                        <TextView
+                            android:id="@+id/statAppointmentsNumber"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:fontFamily="@font/poppins_bold"
+                            android:textColor="@color/docease_text_primary"
+                            android:textSize="24sp"
+                            tools:text="12" />
+
+                        <!-- Label -->
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins_regular"
+                            android:text="Appts"
+                            android:textColor="@color/docease_text_secondary"
+                            android:textSize="13sp" />
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- Stat Card 3: Rating -->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/statCardRating"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_weight="1"
+                    app:cardBackgroundColor="@color/docease_background"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="4dp"
+                    app:strokeWidth="0dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:paddingVertical="20dp">
+
+                        <!-- Icon Container -->
+                        <FrameLayout
+                            android:layout_width="42dp"
+                            android:layout_height="42dp"
+                            android:background="@drawable/bg_stat_icon_normal">
+
+                            <ImageView
+                                android:layout_width="22dp"
+                                android:layout_height="22dp"
+                                android:layout_gravity="center"
+                                android:src="@drawable/ic_star"
+                                android:contentDescription="Rating" />
+
+                        </FrameLayout>
+
+                        <!-- Number -->
+                        <TextView
+                            android:id="@+id/statRatingNumber"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:fontFamily="@font/poppins_bold"
+                            android:textColor="@color/docease_text_primary"
+                            android:textSize="24sp"
+                            tools:text="4.8" />
+
+                        <!-- Label -->
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins_regular"
+                            android:text="Rating"
+                            android:textColor="@color/docease_text_secondary"
+                            android:textSize="13sp" />
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+            </LinearLayout>
+
+            <!-- ==================== TODAY'S APPOINTMENTS SECTION ==================== -->
+
+            <!-- Section Header -->
+            <TextView
+                android:id="@+id/appointmentsTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="Today's Appointments"
+                android:textColor="@color/docease_text_primary"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/statsContainer" />
+
+            <!-- See All Button -->
+            <TextView
+                android:id="@+id/seeAllButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_medium"
+                android:foreground="?attr/selectableItemBackground"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="4dp"
+                android:text="See All"
+                android:textColor="@color/docease_primary"
+                android:textSize="14sp"
+                app:layout_constraintBaseline_toBaselineOf="@id/appointmentsTitle"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <!-- Appointments List (RecyclerView) -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/appointmentsRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:clipToPadding="false"
+                android:nestedScrollingEnabled="false"
+                android:overScrollMode="never"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/appointmentsTitle"
+                tools:itemCount="4"
+                tools:listitem="@layout/item_appointment" />
+
+            <!-- Empty State (shown when no appointments) -->
+            <LinearLayout
+                android:id="@+id/emptyState"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/appointmentsTitle"
+                tools:visibility="gone">
+
+                <ImageView
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:alpha="0.5"
+                    android:src="@drawable/ic_calendar"
+                    android:contentDescription="No Appointments" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="No appointments today"
+                    android:textColor="@color/docease_text_secondary"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:text="Tap + to add a new appointment"
+                    android:textColor="@color/docease_text_hint"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <!-- Floating Action Button -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="80dp"
+        android:contentDescription="Add Appointment"
+        android:src="@drawable/ic_add"
+        app:backgroundTint="@color/docease_primary"
+        app:elevation="8dp"
+        app:fabCustomSize="56dp"
+        app:maxImageSize="24dp"
+        app:shapeAppearanceOverlay="@style/FabRoundedSquare"
+        app:tint="@color/docease_background" />
+
+    <!-- Bottom Navigation Bar -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigation"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_gravity="bottom"
+        android:background="@color/docease_background"
+        app:elevation="16dp"
+        app:itemIconTint="@color/bottom_nav_colors"
+        app:itemTextColor="@color/bottom_nav_colors"
+        app:labelVisibilityMode="labeled"
+        app:menu="@menu/bottom_nav_doctor" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="120dp"
+    android:height="120dp"
+    android:viewportWidth="120"
+    android:viewportHeight="120">
+    
+    <!-- Doctor Illustration -->
+    
+    <!-- Body / Lab Coat -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M60,50 C45,50 35,60 32,80 L32,105 L88,105 L88,80 C85,60 75,50 60,50 Z"/>
+    
+    <!-- Lab Coat Shadow -->
+    <path
+        android:fillColor="#E8E8E8"
+        android:pathData="M60,50 C52,50 45,55 40,65 L40,105 L32,105 L32,80 C35,60 45,50 60,50 Z"/>
+    
+    <!-- Scrubs / Inner Shirt -->
+    <path
+        android:fillColor="@color/docease_primary"
+        android:pathData="M60,52 C50,52 43,58 40,70 L40,75 L80,75 L80,70 C77,58 70,52 60,52 Z"/>
+    
+    <!-- Neck -->
+    <path
+        android:fillColor="#FFDAB9"
+        android:pathData="M54,48 L66,48 L66,55 L54,55 Z"/>
+    
+    <!-- Head -->
+    <path
+        android:fillColor="#FFDAB9"
+        android:pathData="M60,15 C48,15 40,25 40,38 C40,51 48,58 60,55 C72,58 80,51 80,38 C80,25 72,15 60,15 Z"/>
+    
+    <!-- Hair -->
+    <path
+        android:fillColor="#4A3728"
+        android:pathData="M60,12 C47,12 38,20 38,32 C38,35 39,30 42,28 C45,26 50,24 60,24 C70,24 75,26 78,28 C81,30 82,35 82,32 C82,20 73,12 60,12 Z"/>
+    
+    <!-- Left Eye -->
+    <path
+        android:fillColor="#4A3728"
+        android:pathData="M50,35 C50,33.5 51.5,32 53,32 C54.5,32 56,33.5 56,35 C56,36.5 54.5,38 53,38 C51.5,38 50,36.5 50,35 Z"/>
+    
+    <!-- Right Eye -->
+    <path
+        android:fillColor="#4A3728"
+        android:pathData="M64,35 C64,33.5 65.5,32 67,32 C68.5,32 70,33.5 70,35 C70,36.5 68.5,38 67,38 C65.5,38 64,36.5 64,35 Z"/>
+    
+    <!-- Smile -->
+    <path
+        android:fillColor="@android:color/transparent"
+        android:strokeColor="#4A3728"
+        android:strokeWidth="1.5"
+        android:pathData="M55,44 Q60,48 65,44"/>
+    
+    <!-- Stethoscope -->
+    <path
+        android:fillColor="@android:color/transparent"
+        android:strokeColor="#2D3436"
+        android:strokeWidth="2.5"
+        android:pathData="M45,65 Q45,85 55,90"/>
+    <path
+        android:fillColor="@android:color/transparent"
+        android:strokeColor="#2D3436"
+        android:strokeWidth="2.5"
+        android:pathData="M75,65 Q75,85 65,90"/>
+    <path
+        android:fillColor="#2D3436"
+        android:pathData="M55,90 C55,87 57,85 60,85 C63,85 65,87 65,90 C65,93 63,95 60,95 C57,95 55,93 55,90 Z"/>
+    
+    <!-- Stethoscope Earpieces -->
+    <path
+        android:fillColor="#2D3436"
+        android:pathData="M43,62 C43,60 44,59 46,59 C48,59 49,60 49,62 C49,64 48,65 46,65 C44,65 43,64 43,62 Z"/>
+    <path
+        android:fillColor="#2D3436"
+        android:pathData="M71,62 C71,60 72,59 74,59 C76,59 77,60 77,62 C77,64 76,65 74,65 C72,65 71,64 71,62 Z"/>
+    
+    <!-- Clipboard -->
+    <path
+        android:fillColor="#F5F5F5"
+        android:pathData="M82,75 L100,75 L100,105 L82,105 Z"/>
+    <path
+        android:fillColor="#E0E0E0"
+        android:pathData="M85,70 L97,70 L97,78 L85,78 Z"/>
+    <path
+        android:fillColor="@color/docease_primary"
+        android:pathData="M89,72 L93,72 L93,76 L89,76 Z"/>
+    
+    <!-- Clipboard Lines -->
+    <path
+        android:fillColor="#BDBDBD"
+        android:pathData="M85,82 L97,82 L97,84 L85,84 Z"/>
+    <path
+        android:fillColor="#BDBDBD"
+        android:pathData="M85,87 L97,87 L97,89 L85,89 Z"/>
+    <path
+        android:fillColor="#BDBDBD"
+        android:pathData="M85,92 L93,92 L93,94 L85,94 Z"/>
+    
+    <!-- Medical Cross on Coat -->
+    <path
+        android:fillColor="@color/docease_primary"
+        android:pathData="M58,80 L62,80 L62,76 L66,76 L66,80 L70,80 L70,84 L66,84 L66,88 L62,88 L62,84 L58,84 Z"
+        android:fillAlpha="0.3"/>
+    
+</vector>

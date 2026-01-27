@@ -1,0 +1,533 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/docease_screen_background"
+    android:fillViewport="true"
+    android:overScrollMode="never"
+    tools:context=".ui.auth.SignUpActivity"
+    android:fitsSystemWindows="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="24dp"
+        android:paddingTop="16dp"
+        android:paddingBottom="32dp">
+
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <!-- TOP SECTION - Back Arrow                                        -->
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+
+        <ImageButton
+            android:id="@+id/btnBack"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Go back"
+            android:padding="12dp"
+            android:src="@drawable/ic_back_arrow"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/docease_text_primary" />
+
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <!-- TITLE & SUBTITLE                                                -->
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="sans-serif-medium"
+            android:text="Create Account"
+            android:textColor="@color/docease_text_primary"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnBack" />
+
+        <TextView
+            android:id="@+id/tvSubtitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="sans-serif"
+            android:text="Fill in your details to start booking appointments."
+            android:textColor="@color/docease_text_secondary"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvTitle" />
+
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <!-- ROLE SELECTION TOGGLE                                           -->
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+
+        <LinearLayout
+            android:id="@+id/layoutRoleToggle"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/bg_role_toggle_container"
+            android:orientation="horizontal"
+            android:padding="4dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvSubtitle">
+
+            <!-- Patient Tab -->
+            <TextView
+                android:id="@+id/tabPatient"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/bg_role_tab_active"
+                android:fontFamily="sans-serif-medium"
+                android:gravity="center"
+                android:text="Patient"
+                android:textColor="@color/docease_button_text_primary"
+                android:textSize="15sp" />
+
+            <!-- Doctor Tab -->
+            <TextView
+                android:id="@+id/tabDoctor"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/bg_role_tab_inactive"
+                android:fontFamily="sans-serif-medium"
+                android:gravity="center"
+                android:text="Doctor"
+                android:textColor="@color/docease_text_secondary"
+                android:textSize="15sp" />
+
+        </LinearLayout>
+
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <!-- FULL NAME INPUT                                                 -->
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+
+        <TextView
+            android:id="@+id/labelFullName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:fontFamily="sans-serif-medium"
+            android:text="Full Name"
+            android:textColor="@color/docease_text_primary"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/layoutRoleToggle" />
+
+        <LinearLayout
+            android:id="@+id/layoutFullNameInput"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/selector_input_field"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingHorizontal="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/labelFullName">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:contentDescription="Name icon"
+                android:src="@drawable/ic_person" />
+
+            <EditText
+                android:id="@+id/etFullName"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="12dp"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:fontFamily="sans-serif"
+                android:hint="John Doe"
+                android:imeOptions="actionNext"
+                android:importantForAutofill="no"
+                android:inputType="textPersonName|textCapWords"
+                android:textColor="@color/docease_text_primary"
+                android:textColorHint="@color/docease_text_hint"
+                android:textSize="15sp" />
+
+        </LinearLayout>
+
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <!-- EMAIL INPUT                                                     -->
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+
+        <TextView
+            android:id="@+id/labelEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="sans-serif-medium"
+            android:text="Email Address"
+            android:textColor="@color/docease_text_primary"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/layoutFullNameInput" />
+
+        <LinearLayout
+            android:id="@+id/layoutEmailInput"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/selector_input_field"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingHorizontal="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/labelEmail">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:contentDescription="Email icon"
+                android:src="@drawable/ic_email" />
+
+            <EditText
+                android:id="@+id/etEmail"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="12dp"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:fontFamily="sans-serif"
+                android:hint="name@example.com"
+                android:imeOptions="actionNext"
+                android:importantForAutofill="no"
+                android:inputType="textEmailAddress"
+                android:textColor="@color/docease_text_primary"
+                android:textColorHint="@color/docease_text_hint"
+                android:textSize="15sp" />
+
+        </LinearLayout>
+
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <!-- PASSWORD INPUT                                                  -->
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+
+        <TextView
+            android:id="@+id/labelPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="sans-serif-medium"
+            android:text="Password"
+            android:textColor="@color/docease_text_primary"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/layoutEmailInput" />
+
+        <LinearLayout
+            android:id="@+id/layoutPasswordInput"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/selector_input_field"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingHorizontal="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/labelPassword">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:contentDescription="Password icon"
+                android:src="@drawable/ic_lock" />
+
+            <EditText
+                android:id="@+id/etPassword"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="12dp"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:fontFamily="sans-serif"
+                android:hint="Create a password"
+                android:imeOptions="actionNext"
+                android:importantForAutofill="no"
+                android:inputType="textPassword"
+                android:textColor="@color/docease_text_primary"
+                android:textColorHint="@color/docease_text_hint"
+                android:textSize="15sp" />
+
+            <ImageButton
+                android:id="@+id/btnTogglePassword"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="Toggle password visibility"
+                android:padding="8dp"
+                android:src="@drawable/ic_visibility_off" />
+
+        </LinearLayout>
+
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <!-- CONFIRM PASSWORD INPUT                                          -->
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+
+        <TextView
+            android:id="@+id/labelConfirmPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="sans-serif-medium"
+            android:text="Confirm Password"
+            android:textColor="@color/docease_text_primary"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/layoutPasswordInput" />
+
+        <LinearLayout
+            android:id="@+id/layoutConfirmPasswordInput"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/selector_input_field"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingHorizontal="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/labelConfirmPassword">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:contentDescription="Confirm password icon"
+                android:src="@drawable/ic_lock" />
+
+            <EditText
+                android:id="@+id/etConfirmPassword"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="12dp"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:fontFamily="sans-serif"
+                android:hint="Re-enter password"
+                android:imeOptions="actionDone"
+                android:importantForAutofill="no"
+                android:inputType="textPassword"
+                android:textColor="@color/docease_text_primary"
+                android:textColorHint="@color/docease_text_hint"
+                android:textSize="15sp" />
+
+            <ImageButton
+                android:id="@+id/btnToggleConfirmPassword"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="Toggle confirm password visibility"
+                android:padding="8dp"
+                android:src="@drawable/ic_visibility_off" />
+
+        </LinearLayout>
+
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <!-- TERMS & PRIVACY CHECKBOX                                        -->
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+
+        <LinearLayout
+            android:id="@+id/layoutTerms"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/layoutConfirmPasswordInput">
+
+            <CheckBox
+                android:id="@+id/cbTerms"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:button="@drawable/selector_checkbox"
+                android:checked="false" />
+
+            <TextView
+                android:id="@+id/tvTermsText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_weight="1"
+                android:fontFamily="sans-serif"
+                android:lineSpacingExtra="3dp"
+                android:text="I agree to the Terms of Service and Privacy Policy."
+                android:textColor="@color/docease_text_secondary"
+                android:textSize="13sp" />
+
+        </LinearLayout>
+
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <!-- SIGN UP BUTTON                                                  -->
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+
+        <Button
+            android:id="@+id/btnSignUp"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/selector_button_primary"
+            android:fontFamily="sans-serif-medium"
+            android:text="Sign Up"
+            android:textAllCaps="false"
+            android:textColor="@color/docease_button_text_primary"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/layoutTerms" />
+
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <!-- SOCIAL SIGN UP DIVIDER                                          -->
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+
+        <LinearLayout
+            android:id="@+id/layoutDivider"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnSignUp">
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1"
+                android:background="@color/docease_divider" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif"
+                android:letterSpacing="0.05"
+                android:paddingHorizontal="16dp"
+                android:text="OR SIGN UP WITH"
+                android:textColor="@color/docease_text_hint"
+                android:textSize="11sp" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1"
+                android:background="@color/docease_divider" />
+
+        </LinearLayout>
+
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <!-- SOCIAL SIGN UP BUTTONS                                          -->
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+
+        <LinearLayout
+            android:id="@+id/layoutSocialButtons"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/layoutDivider">
+
+            <!-- Google Button -->
+            <LinearLayout
+                android:id="@+id/btnGoogle"
+                android:layout_width="0dp"
+                android:layout_height="52dp"
+                android:layout_marginEnd="8dp"
+                android:layout_weight="1"
+                android:background="@drawable/selector_social_button"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:contentDescription="Google"
+                    android:src="@drawable/ic_google" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="Google"
+                    android:textColor="@color/docease_text_primary"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
+
+            <!-- Apple Button -->
+            <LinearLayout
+                android:id="@+id/btnApple"
+                android:layout_width="0dp"
+                android:layout_height="52dp"
+                android:layout_marginStart="8dp"
+                android:layout_weight="1"
+                android:background="@drawable/selector_social_button"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:contentDescription="Apple"
+                    android:src="@drawable/ic_apple" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="Apple"
+                    android:textColor="@color/docease_text_primary"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <!-- FOOTER - LOGIN LINK                                             -->
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+
+        <TextView
+            android:id="@+id/tvLoginLink"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:fontFamily="sans-serif"
+            android:gravity="center"
+            android:paddingVertical="8dp"
+            android:text="Already have an account? Log In"
+            android:textColor="@color/docease_text_secondary"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/layoutSocialButtons" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

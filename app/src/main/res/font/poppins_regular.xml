@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+    Poppins Font Family Placeholder
+    
+    To use actual Poppins fonts:
+    1. Download Poppins from Google Fonts: https://fonts.google.com/specimen/Poppins
+    2. Add the following .ttf files to res/font/:
+       - poppins_regular.ttf
+       - poppins_medium.ttf
+       - poppins_semibold.ttf
+       - poppins_bold.ttf
+    
+    For now, these XML files reference system fonts as fallback.
+-->
+<font-family xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    
+    <font
+        android:fontStyle="normal"
+        android:fontWeight="400"
+        android:font="@font/poppins"
+        app:fontStyle="normal"
+        app:fontWeight="400"
+        app:font="@font/poppins" />
+        
+</font-family>

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?attr/selectableItemBackground"
+    android:paddingHorizontal="20dp"
+    android:paddingVertical="14dp">
+
+    <!-- Notification Icon Container -->
+    <FrameLayout
+        android:id="@+id/iconContainer"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <View
+            android:id="@+id/iconBackground"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="@drawable/bg_notification_icon_teal" />
+
+        <ImageView
+            android:id="@+id/ivNotificationIcon"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="center"
+            tools:src="@drawable/ic_notification_confirmed" />
+
+    </FrameLayout>
+
+    <!-- Unread Indicator Dot -->
+    <View
+        android:id="@+id/unreadIndicator"
+        android:layout_width="8dp"
+        android:layout_height="8dp"
+        android:background="@drawable/bg_unread_indicator"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@id/iconContainer"
+        app:layout_constraintTop_toTopOf="@id/iconContainer"
+        tools:visibility="visible" />
+
+    <!-- Title -->
+    <TextView
+        android:id="@+id/tvNotificationTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="14dp"
+        android:layout_marginEnd="8dp"
+        android:ellipsize="end"
+        android:fontFamily="@font/poppins_semibold"
+        android:maxLines="1"
+        android:textColor="@color/docease_text_primary"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toStartOf="@id/tvTime"
+        app:layout_constraintStart_toEndOf="@id/iconContainer"
+        app:layout_constraintTop_toTopOf="@id/iconContainer"
+        tools:text="Appointment Confirmed" />
+
+    <!-- Description -->
+    <TextView
+        android:id="@+id/tvNotificationDescription"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="8dp"
+        android:ellipsize="end"
+        android:fontFamily="@font/poppins_regular"
+        android:maxLines="2"
+        android:textColor="@color/docease_text_secondary"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toStartOf="@id/tvTime"
+        app:layout_constraintStart_toEndOf="@id/iconContainer"
+        app:layout_constraintTop_toBottomOf="@id/tvNotificationTitle"
+        tools:text="Your appointment with Dr. Sarah Johnson has been confirmed for Dec 20, 2024" />
+
+    <!-- Time -->
+    <TextView
+        android:id="@+id/tvTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_regular"
+        android:textColor="@color/docease_text_hint"
+        android:textSize="11sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tvNotificationTitle"
+        tools:text="2m ago" />
+
+    <!-- Join Now Button (for Video Consultation) -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnAction"
+        android:layout_width="wrap_content"
+        android:layout_height="36dp"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/poppins_medium"
+        android:paddingHorizontal="16dp"
+        android:text="Join Now"
+        android:textAllCaps="false"
+        android:textColor="@color/docease_primary"
+        android:textSize="12sp"
+        android:visibility="gone"
+        app:backgroundTint="@color/docease_primary_light"
+        app:cornerRadius="18dp"
+        app:icon="@drawable/ic_play_small"
+        app:iconGravity="textStart"
+        app:iconPadding="6dp"
+        app:iconSize="14dp"
+        app:iconTint="@color/docease_primary"
+        app:layout_constraintStart_toEndOf="@id/iconContainer"
+        app:layout_constraintTop_toBottomOf="@id/tvNotificationDescription"
+        app:strokeColor="@color/docease_primary"
+        app:strokeWidth="1dp"
+        tools:visibility="visible" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

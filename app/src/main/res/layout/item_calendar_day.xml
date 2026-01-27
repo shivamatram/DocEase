@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/dayContainer"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?attr/selectableItemBackgroundBorderless"
+    tools:layout_width="48dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingVertical="8dp">
+
+        <TextView
+            android:id="@+id/tvDayNumber"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:background="@drawable/bg_calendar_day"
+            android:fontFamily="@font/poppins_medium"
+            android:gravity="center"
+            android:textColor="#2D3436"
+            android:textSize="14sp"
+            tools:text="15" />
+
+        <View
+            android:id="@+id/indicatorDot"
+            android:layout_width="6dp"
+            android:layout_height="6dp"
+            android:layout_marginTop="4dp"
+            android:background="@drawable/bg_day_available_dot"
+            android:visibility="gone"
+            tools:visibility="visible" />
+
+    </LinearLayout>
+
+</FrameLayout>

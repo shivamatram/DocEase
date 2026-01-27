@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Appointment list item layout -->
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/appointmentCard"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="12dp"
+    app:cardBackgroundColor="@color/docease_background"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="2dp"
+    app:strokeWidth="0dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <!-- Accent Line (shown for highlighted/current appointment) -->
+        <View
+            android:id="@+id/accentLine"
+            android:layout_width="4dp"
+            android:layout_height="0dp"
+            android:background="@drawable/bg_accent_line"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@id/patientAvatar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/patientAvatar"
+            tools:visibility="visible" />
+
+        <!-- Patient Avatar -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/avatarContainer"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="8dp"
+            app:cardCornerRadius="25dp"
+            app:cardElevation="0dp"
+            app:strokeWidth="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/accentLine"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/patientAvatar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_avatar_placeholder"
+                android:contentDescription="Patient Avatar" />
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Patient Name -->
+        <TextView
+            android:id="@+id/patientName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="14dp"
+            android:layout_marginEnd="8dp"
+            android:ellipsize="end"
+            android:fontFamily="@font/poppins_semibold"
+            android:maxLines="1"
+            android:textColor="@color/docease_text_primary"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toTopOf="@id/appointmentReason"
+            app:layout_constraintEnd_toStartOf="@id/timeContainer"
+            app:layout_constraintStart_toEndOf="@id/avatarContainer"
+            app:layout_constraintTop_toTopOf="@id/avatarContainer"
+            app:layout_constraintVertical_chainStyle="packed"
+            tools:text="Sarah Johnson" />
+
+        <!-- Appointment Reason -->
+        <TextView
+            android:id="@+id/appointmentReason"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="14dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginEnd="8dp"
+            android:ellipsize="end"
+            android:fontFamily="@font/poppins_regular"
+            android:maxLines="1"
+            android:textColor="@color/docease_text_secondary"
+            android:textSize="13sp"
+            app:layout_constraintBottom_toBottomOf="@id/avatarContainer"
+            app:layout_constraintEnd_toStartOf="@id/timeContainer"
+            app:layout_constraintStart_toEndOf="@id/avatarContainer"
+            app:layout_constraintTop_toBottomOf="@id/patientName"
+            tools:text="General Checkup" />
+
+        <!-- Time & Status Container -->
+        <LinearLayout
+            android:id="@+id/timeContainer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="end|center_vertical"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <!-- Appointment Time -->
+            <TextView
+                android:id="@+id/appointmentTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_medium"
+                android:textColor="@color/docease_text_primary"
+                android:textSize="13sp"
+                tools:text="09:00 AM" />
+
+            <!-- Status Chip -->
+            <TextView
+                android:id="@+id/statusChip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/bg_chip_upcoming"
+                android:fontFamily="@font/poppins_medium"
+                android:paddingHorizontal="12dp"
+                android:paddingVertical="4dp"
+                android:textColor="@color/docease_primary"
+                android:textSize="11sp"
+                tools:text="Upcoming" />
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>

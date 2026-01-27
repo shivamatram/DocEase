@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:background="@drawable/bg_splash_gradient"
+    tools:context=".ui.auth.SplashActivity"
+    android:fitsSystemWindows="true">
+
+    <!-- Spacer (top balance) -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <!-- APP ICON SECTION -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardIconContainer"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginBottom="24dp"
+        app:cardBackgroundColor="#FFFFFF"
+        app:cardCornerRadius="24dp"
+        app:cardElevation="12dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="16dp">
+
+            <View
+                android:id="@+id/viewInnerContainer"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@drawable/bg_icon_container_inner"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <ImageView
+                android:id="@+id/ivMedicalIcon"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/ic_medical_bag"
+                android:contentDescription="@string/app_name"
+                app:layout_constraintTop_toTopOf="@id/viewInnerContainer"
+                app:layout_constraintBottom_toBottomOf="@id/viewInnerContainer"
+                app:layout_constraintStart_toStartOf="@id/viewInnerContainer"
+                app:layout_constraintEnd_toEndOf="@id/viewInnerContainer" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- APP NAME -->
+    <TextView
+        android:id="@+id/tvAppName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="DocEase"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        android:textColor="#2D3436"
+        android:fontFamily="sans-serif-medium" />
+
+    <!-- SUBTITLE -->
+    <TextView
+        android:id="@+id/tvSubtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="Book appointments instantly"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="#8E9AAB"
+        android:fontFamily="sans-serif" />
+
+    <!-- Spacer -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <!-- LOADING TEXT -->
+    <TextView
+        android:layout_marginStart="20dp"
+        android:id="@+id/tvLoading"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="LOADING RESOURCES"
+        android:textAllCaps="true"
+        android:textSize="11sp"
+        android:textStyle="bold"
+        android:textColor="#595D66"
+        android:letterSpacing="0.15"
+        android:fontFamily="sans-serif-medium" />
+
+    <!-- PROGRESS BAR -->
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="6dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="24dp"
+        android:max="100"
+        android:progress="0"
+        android:indeterminate="false"
+        android:progressDrawable="@drawable/progress_bar_custom" />
+
+    <!-- FOOTER TEXT -->
+    <TextView
+        android:id="@+id/tvVersion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:text="v1.0.2 • Secure &amp; Encrypted"
+        android:textSize="12sp"
+        android:textColor="#B8C5D1"
+        android:fontFamily="sans-serif" />
+
+</LinearLayout>

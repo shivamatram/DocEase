@@ -1,0 +1,492 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/docease_background"
+    android:fitsSystemWindows="true">
+
+    <!-- Scrollable Content -->
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:paddingBottom="100dp"
+        android:clipToPadding="false"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Top App Bar -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="20dp"
+                android:paddingTop="48dp"
+                android:paddingBottom="16dp">
+
+                <!-- Back Button -->
+                <ImageView
+                    android:id="@+id/btnBack"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/bg_action_circle"
+                    android:padding="10dp"
+                    android:src="@drawable/ic_back_arrow"
+                    android:contentDescription="@string/back"
+                    app:tint="@color/docease_text_primary" />
+
+                <!-- Title -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="Book Appointment"
+                    android:textSize="18sp"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:textColor="@color/docease_text_primary" />
+
+            </RelativeLayout>
+
+            <!-- Doctor Summary Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/doctorSummaryCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginBottom="24dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp"
+                app:cardBackgroundColor="@color/white"
+                app:strokeWidth="0dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp">
+
+                    <!-- Doctor Photo Container -->
+                    <FrameLayout
+                        android:id="@+id/doctorPhotoContainer"
+                        android:layout_width="72dp"
+                        android:layout_height="72dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent">
+
+                        <com.google.android.material.imageview.ShapeableImageView
+                            android:id="@+id/ivDoctorPhoto"
+                            android:layout_width="72dp"
+                            android:layout_height="72dp"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/doctor_placeholder"
+                            app:shapeAppearanceOverlay="@style/RoundedCorner12" />
+
+                        <!-- Online Status Dot -->
+                        <View
+                            android:id="@+id/viewOnlineStatus"
+                            android:layout_width="14dp"
+                            android:layout_height="14dp"
+                            android:layout_gravity="bottom|end"
+                            android:layout_marginEnd="2dp"
+                            android:layout_marginBottom="2dp"
+                            android:background="@drawable/bg_online_dot_small" />
+
+                    </FrameLayout>
+
+                    <!-- Doctor Name -->
+                    <TextView
+                        android:id="@+id/tvDoctorName"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="14dp"
+                        android:layout_marginEnd="8dp"
+                        android:text="Dr. Sarah Johnson"
+                        android:textSize="17sp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:textColor="@color/docease_text_primary"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        app:layout_constraintStart_toEndOf="@id/doctorPhotoContainer"
+                        app:layout_constraintEnd_toStartOf="@id/btnFavorite"
+                        app:layout_constraintTop_toTopOf="@id/doctorPhotoContainer"
+                        app:layout_constraintBottom_toTopOf="@id/tvSpecialty" />
+
+                    <!-- Specialty -->
+                    <TextView
+                        android:id="@+id/tvSpecialty"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="14dp"
+                        android:layout_marginEnd="8dp"
+                        android:text="Cardiologist"
+                        android:textSize="13sp"
+                        android:fontFamily="@font/poppins_regular"
+                        android:textColor="@color/docease_text_secondary"
+                        app:layout_constraintStart_toEndOf="@id/doctorPhotoContainer"
+                        app:layout_constraintEnd_toStartOf="@id/btnFavorite"
+                        app:layout_constraintTop_toBottomOf="@id/tvDoctorName"
+                        app:layout_constraintBottom_toTopOf="@id/ratingContainer" />
+
+                    <!-- Rating Container -->
+                    <LinearLayout
+                        android:id="@+id/ratingContainer"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="14dp"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        app:layout_constraintStart_toEndOf="@id/doctorPhotoContainer"
+                        app:layout_constraintTop_toBottomOf="@id/tvSpecialty"
+                        app:layout_constraintBottom_toBottomOf="@id/doctorPhotoContainer">
+
+                        <ImageView
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:src="@drawable/ic_star_filled"
+                            app:tint="#FFB800" />
+
+                        <TextView
+                            android:id="@+id/tvRating"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="4dp"
+                            android:text="4.8"
+                            android:textSize="13sp"
+                            android:fontFamily="@font/poppins_semibold"
+                            android:textColor="@color/docease_text_primary" />
+
+                        <TextView
+                            android:id="@+id/tvReviews"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="4dp"
+                            android:text="(124 reviews)"
+                            android:textSize="12sp"
+                            android:fontFamily="@font/poppins_regular"
+                            android:textColor="@color/docease_text_secondary" />
+
+                    </LinearLayout>
+
+                    <!-- Favorite Button -->
+                    <ImageView
+                        android:id="@+id/btnFavorite"
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        android:padding="6dp"
+                        android:src="@drawable/ic_heart_outline"
+                        android:contentDescription="Favorite"
+                        app:tint="@color/docease_text_secondary"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Select Date Section -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingHorizontal="20dp"
+                android:layout_marginBottom="24dp">
+
+                <!-- Section Header -->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        android:text="Select Date"
+                        android:textSize="17sp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:textColor="@color/docease_text_primary" />
+
+                    <!-- Month Display -->
+                    <LinearLayout
+                        android:id="@+id/monthSelector"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:background="?attr/selectableItemBackgroundBorderless">
+
+                        <TextView
+                            android:id="@+id/tvSelectedMonth"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="October 2023"
+                            android:textSize="14sp"
+                            android:fontFamily="@font/poppins_medium"
+                            android:textColor="@color/docease_primary" />
+
+                        <ImageView
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:layout_marginStart="4dp"
+                            android:src="@drawable/ic_dropdown_arrow"
+                            app:tint="@color/docease_primary" />
+
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+                <!-- Date Chips RecyclerView -->
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvDateChips"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:clipToPadding="false"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:listitem="@layout/item_booking_date_chip" />
+
+            </LinearLayout>
+
+            <!-- Available Time Section -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingHorizontal="20dp"
+                android:layout_marginBottom="24dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Available Time"
+                    android:textSize="17sp"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:textColor="@color/docease_text_primary"
+                    android:layout_marginBottom="16dp" />
+
+                <!-- Time Chips Grid -->
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvTimeChips"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clipToPadding="false"
+                    app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                    app:spanCount="3"
+                    tools:listitem="@layout/item_booking_time_chip" />
+
+            </LinearLayout>
+
+            <!-- Note to Doctor Section -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingHorizontal="20dp"
+                android:layout_marginBottom="24dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Note to Doctor"
+                    android:textSize="17sp"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:textColor="@color/docease_text_primary"
+                    android:layout_marginBottom="12dp" />
+
+                <!-- Note Input Container -->
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/etNoteToDoctor"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:minHeight="120dp"
+                        android:background="@drawable/bg_note_input_field"
+                        android:padding="16dp"
+                        android:paddingBottom="40dp"
+                        android:gravity="top|start"
+                        android:hint="Briefly describe your problem..."
+                        android:textColorHint="@color/docease_text_hint"
+                        android:textSize="14sp"
+                        android:fontFamily="@font/poppins_regular"
+                        android:textColor="@color/docease_text_primary"
+                        android:inputType="textMultiLine"
+                        android:maxLines="5" />
+
+                    <!-- Edit Icon -->
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_gravity="bottom|end"
+                        android:layout_marginEnd="12dp"
+                        android:layout_marginBottom="12dp"
+                        android:src="@drawable/ic_edit_note" />
+
+                </FrameLayout>
+
+            </LinearLayout>
+
+            <!-- Payment Summary Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginBottom="24dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="0dp"
+                app:cardBackgroundColor="@color/white"
+                app:strokeWidth="1dp"
+                app:strokeColor="@color/docease_border">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <!-- Consultation Fee Row -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="12dp">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Consultation Fee"
+                            android:textSize="14sp"
+                            android:fontFamily="@font/poppins_regular"
+                            android:textColor="@color/docease_text_secondary" />
+
+                        <TextView
+                            android:id="@+id/tvConsultationFee"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="$60.00"
+                            android:textSize="14sp"
+                            android:fontFamily="@font/poppins_semibold"
+                            android:textColor="@color/docease_text_primary" />
+
+                    </LinearLayout>
+
+                    <!-- Admin Fee Row -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="12dp">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Admin Fee"
+                            android:textSize="14sp"
+                            android:fontFamily="@font/poppins_regular"
+                            android:textColor="@color/docease_text_secondary" />
+
+                        <TextView
+                            android:id="@+id/tvAdminFee"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="$2.00"
+                            android:textSize="14sp"
+                            android:fontFamily="@font/poppins_semibold"
+                            android:textColor="@color/docease_text_primary" />
+
+                    </LinearLayout>
+
+                    <!-- Divider -->
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/divider"
+                        android:layout_marginBottom="12dp" />
+
+                    <!-- Total Payment Row -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Total Payment"
+                            android:textSize="15sp"
+                            android:fontFamily="@font/poppins_semibold"
+                            android:textColor="@color/docease_text_primary" />
+
+                        <TextView
+                            android:id="@+id/tvTotalPayment"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="$62.00"
+                            android:textSize="18sp"
+                            android:fontFamily="@font/poppins_bold"
+                            android:textColor="@color/docease_primary" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <!-- Confirm Appointment Button (Fixed at bottom) -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:orientation="vertical"
+        android:background="@color/white"
+        android:paddingHorizontal="20dp"
+        android:paddingTop="12dp"
+        android:paddingBottom="24dp"
+        android:elevation="8dp">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnConfirmAppointment"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:text="Confirm Appointment"
+            android:textSize="16sp"
+            android:fontFamily="@font/poppins_semibold"
+            android:textColor="@color/white"
+            android:textAllCaps="false"
+            app:backgroundTint="@color/docease_primary"
+            app:cornerRadius="14dp"
+            app:icon="@drawable/ic_check_circle_white"
+            app:iconGravity="textEnd"
+            app:iconPadding="8dp"
+            app:iconSize="20dp"
+            app:iconTint="@color/white"
+            app:elevation="4dp" />
+
+    </LinearLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

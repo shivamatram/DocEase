@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <!-- ═══════════════════════════════════════════════════════════════ -->
+    <!-- DOCEASE BRAND COLORS - Global Design System                    -->
+    <!-- Use these colors consistently across all screens                -->
+    <!-- ═══════════════════════════════════════════════════════════════ -->
+    
+    <!-- Primary Brand Colors -->
+    <color name="docease_primary_variant">#00B4AB</color>
+    
+    <!-- Secondary Colors -->
+    <color name="docease_secondary">#2D3436</color>
+    <color name="docease_secondary_light">#636E72</color>
+    
+    <!-- Background Colors -->
+    <color name="docease_background_light">#F8FAFA</color>
+    <color name="docease_screen_background">#FAFBFC</color>
+    
+    <!-- Gradient Colors -->
+    <color name="docease_gradient_start">#E8F6F6</color>
+    <color name="docease_gradient_center">#F0FAFA</color>
+    <color name="docease_gradient_end">#FFFFFF</color>
+    
+    <!-- Text Colors -->
+    <color name="docease_text_disabled">#D5DCE4</color>
+    
+    <!-- Icon Colors -->
+    <color name="docease_icon_primary">#4DD0C9</color>
+    <color name="docease_icon_secondary">#8E9AAB</color>
+    <color name="docease_icon_white">#FFFFFF</color>
+    
+    <!-- Progress Bar Colors -->
+    <color name="docease_progress_track">#E8E8E8</color>
+    <color name="docease_progress_indicator">#4DD0C9</color>
+    
+    <!-- Card Colors -->
+    <color name="docease_card_stroke">#E8E8E8</color>
+    
+    <!-- Status Colors -->
+    <color name="docease_success">#4DD0C9</color>
+    <color name="docease_warning">#FFB74D</color>
+    <color name="docease_error">#EF5350</color>
+    <color name="docease_info">#42A5F5</color>
+    
+    <!-- Button Colors -->
+    <color name="docease_button_primary">#4DD0C9</color>
+    <color name="docease_button_primary_pressed">#3DBDB6</color>
+    <color name="docease_button_secondary">#FFFFFF</color>
+    <color name="docease_button_text_primary">#FFFFFF</color>
+    <color name="docease_button_text_secondary">#4DD0C9</color>
+    
+    <!-- Divider Colors -->
+    <color name="docease_divider">#E8E8E8</color>
+    <color name="docease_divider_light">#F0F0F0</color>
+    
+    <!-- Overlay Colors -->
+    <color name="docease_overlay_dark">#80000000</color>
+    <color name="docease_overlay_light">#40FFFFFF</color>
+    
+    <!-- Ripple Colors -->
+    <color name="docease_ripple_light">#204DD0C9</color>
+    <color name="docease_ripple_dark">#302D3436</color>
+    
+</resources>

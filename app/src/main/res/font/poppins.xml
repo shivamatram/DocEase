@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<font-family xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    
+    <!-- Poppins Regular - Weight 400 -->
+    <!-- Note: Download Poppins font family from Google Fonts and add the .ttf files -->
+    <!-- For now, this acts as a placeholder using the system default -->
+    
+</font-family>

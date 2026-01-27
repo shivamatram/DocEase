@@ -1,0 +1,856 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/docease_background"
+    android:fitsSystemWindows="true"
+    tools:context=".ui.appointment.AppointmentStatusActivity">
+
+    <!-- Top App Bar -->
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:elevation="0dp"
+        app:elevation="0dp">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/white"
+            app:navigationIcon="@drawable/ic_arrow_back"
+            app:navigationIconTint="@color/docease_text_primary"
+            app:title="Appointment Status"
+            app:titleTextAppearance="@style/TextAppearance.DocEase.Toolbar"
+            app:titleCentered="true"
+            app:titleTextColor="@color/docease_text_primary" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <!-- Main Content -->
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:clipToPadding="false"
+        android:overScrollMode="never"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="32dp">
+
+            <!-- Status Header Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardStatusHeader"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="16dp"
+                app:cardBackgroundColor="@color/docease_primary"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="4dp"
+                app:strokeWidth="0dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="20dp">
+
+                    <ImageView
+                        android:id="@+id/ivStatusIcon"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:background="@drawable/bg_status_icon_circle"
+                        android:padding="12dp"
+                        android:src="@drawable/ic_check_small"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:tint="@color/docease_primary" />
+
+                    <TextView
+                        android:id="@+id/tvStatusTitle"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="Appointment Confirmed"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/ivStatusIcon"
+                        app:layout_constraintTop_toTopOf="@id/ivStatusIcon" />
+
+                    <TextView
+                        android:id="@+id/tvStatusSubtitle"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="2dp"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="Your appointment has been confirmed"
+                        android:textColor="@color/white"
+                        android:alpha="0.9"
+                        android:textSize="13sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/ivStatusIcon"
+                        app:layout_constraintTop_toBottomOf="@id/tvStatusTitle" />
+
+                    <TextView
+                        android:id="@+id/tvBookingId"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:background="@drawable/bg_booking_id_chip"
+                        android:fontFamily="@font/poppins_medium"
+                        android:paddingHorizontal="12dp"
+                        android:paddingVertical="6dp"
+                        android:text="Booking ID: #APT-2024-0892"
+                        android:textColor="@color/white"
+                        android:textSize="12sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/ivStatusIcon" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Timeline Section -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="24dp"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="TIMELINE"
+                android:textColor="@color/docease_text_secondary"
+                android:textSize="12sp"
+                android:letterSpacing="0.1" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardTimeline"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="12dp"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp"
+                app:strokeColor="@color/docease_divider"
+                app:strokeWidth="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <!-- Step 1: Booked -->
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <View
+                            android:id="@+id/timelineCircle1"
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:background="@drawable/bg_timeline_circle_completed"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <ImageView
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:src="@drawable/ic_check_small"
+                            app:layout_constraintBottom_toBottomOf="@id/timelineCircle1"
+                            app:layout_constraintEnd_toEndOf="@id/timelineCircle1"
+                            app:layout_constraintStart_toStartOf="@id/timelineCircle1"
+                            app:layout_constraintTop_toTopOf="@id/timelineCircle1" />
+
+                        <View
+                            android:id="@+id/timelineLine1"
+                            android:layout_width="3dp"
+                            android:layout_height="40dp"
+                            android:layout_marginTop="4dp"
+                            android:background="@drawable/bg_timeline_line_completed"
+                            app:layout_constraintEnd_toEndOf="@id/timelineCircle1"
+                            app:layout_constraintStart_toStartOf="@id/timelineCircle1"
+                            app:layout_constraintTop_toBottomOf="@id/timelineCircle1" />
+
+                        <TextView
+                            android:id="@+id/tvStep1Title"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:fontFamily="@font/poppins_semibold"
+                            android:text="Appointment Booked"
+                            android:textColor="@color/docease_text_primary"
+                            android:textSize="14sp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@id/timelineCircle1"
+                            app:layout_constraintTop_toTopOf="@id/timelineCircle1" />
+
+                        <TextView
+                            android:id="@+id/tvStep1Time"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:fontFamily="@font/poppins_regular"
+                            android:text="Dec 15, 2024 • 10:30 AM"
+                            android:textColor="@color/docease_text_secondary"
+                            android:textSize="12sp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@id/timelineCircle1"
+                            app:layout_constraintTop_toBottomOf="@id/tvStep1Title" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <!-- Step 2: Confirmed (Current) -->
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp">
+
+                        <View
+                            android:id="@+id/timelineCircle2"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_marginStart="-4dp"
+                            android:background="@drawable/bg_timeline_circle_current"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/ic_check_small"
+                            app:tint="@color/docease_primary"
+                            app:layout_constraintBottom_toBottomOf="@id/timelineCircle2"
+                            app:layout_constraintEnd_toEndOf="@id/timelineCircle2"
+                            app:layout_constraintStart_toStartOf="@id/timelineCircle2"
+                            app:layout_constraintTop_toTopOf="@id/timelineCircle2" />
+
+                        <View
+                            android:id="@+id/timelineLine2"
+                            android:layout_width="3dp"
+                            android:layout_height="40dp"
+                            android:layout_marginTop="4dp"
+                            android:background="@drawable/bg_timeline_line_pending"
+                            app:layout_constraintEnd_toEndOf="@id/timelineCircle2"
+                            app:layout_constraintStart_toStartOf="@id/timelineCircle2"
+                            app:layout_constraintTop_toBottomOf="@id/timelineCircle2" />
+
+                        <TextView
+                            android:id="@+id/tvStep2Title"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="12dp"
+                            android:fontFamily="@font/poppins_semibold"
+                            android:text="Appointment Confirmed"
+                            android:textColor="@color/docease_primary"
+                            android:textSize="14sp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@id/timelineCircle2"
+                            app:layout_constraintTop_toTopOf="@id/timelineCircle2"
+                            app:layout_constraintBottom_toBottomOf="@id/timelineCircle2"/>
+
+                        <TextView
+                            android:id="@+id/tvStep2Time"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="12dp"
+                            android:fontFamily="@font/poppins_regular"
+                            android:text="Dec 15, 2024 • 11:00 AM"
+                            android:textColor="@color/docease_text_secondary"
+                            android:textSize="12sp"
+                            android:visibility="gone"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@id/timelineCircle2"
+                            app:layout_constraintTop_toBottomOf="@id/tvStep2Title" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <!-- Step 3: Visit Completed -->
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp">
+
+                        <View
+                            android:id="@+id/timelineCircle3"
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:background="@drawable/bg_timeline_circle_pending"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/tvStep3Title"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:fontFamily="@font/poppins_medium"
+                            android:text="Visit Completed"
+                            android:textColor="@color/docease_text_secondary"
+                            android:textSize="14sp"
+                            app:layout_constraintBottom_toBottomOf="@id/timelineCircle3"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@id/timelineCircle3"
+                            app:layout_constraintTop_toTopOf="@id/timelineCircle3" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Your Doctor Section -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="24dp"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="YOUR DOCTOR"
+                android:textColor="@color/docease_text_secondary"
+                android:textSize="12sp"
+                android:letterSpacing="0.1" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardDoctor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="12dp"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp"
+                app:strokeColor="@color/docease_divider"
+                app:strokeWidth="1dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp">
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/ivDoctorImage"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:background="@color/docease_primary_light"
+                        android:scaleType="centerCrop"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:shapeAppearanceOverlay="@style/RoundedCorner12"
+                        tools:src="@drawable/ic_person" />
+
+                    <TextView
+                        android:id="@+id/tvDoctorName"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="14dp"
+                        android:ellipsize="end"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:maxLines="1"
+                        android:text="Dr. Sarah Johnson"
+                        android:textColor="@color/docease_text_primary"
+                        android:textSize="16sp"
+                        app:layout_constraintEnd_toStartOf="@id/btnMessage"
+                        app:layout_constraintStart_toEndOf="@id/ivDoctorImage"
+                        app:layout_constraintTop_toTopOf="@id/ivDoctorImage" />
+
+                    <TextView
+                        android:id="@+id/tvDoctorSpecialty"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="14dp"
+                        android:layout_marginTop="2dp"
+                        android:ellipsize="end"
+                        android:fontFamily="@font/poppins_regular"
+                        android:maxLines="1"
+                        android:text="Cardiologist"
+                        android:textColor="@color/docease_text_secondary"
+                        android:textSize="13sp"
+                        app:layout_constraintEnd_toStartOf="@id/btnMessage"
+                        app:layout_constraintStart_toEndOf="@id/ivDoctorImage"
+                        app:layout_constraintTop_toBottomOf="@id/tvDoctorName" />
+
+                    <LinearLayout
+                        android:id="@+id/layoutRating"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="14dp"
+                        android:layout_marginTop="4dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        app:layout_constraintStart_toEndOf="@id/ivDoctorImage"
+                        app:layout_constraintTop_toBottomOf="@id/tvDoctorSpecialty">
+
+                        <ImageView
+                            android:layout_width="14dp"
+                            android:layout_height="14dp"
+                            android:src="@drawable/ic_star"
+                            app:tint="@color/rating_star" />
+
+                        <TextView
+                            android:id="@+id/tvDoctorRating"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="4dp"
+                            android:fontFamily="@font/poppins_medium"
+                            android:text="4.9"
+                            android:textColor="@color/docease_text_primary"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/tvReviewCount"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="4dp"
+                            android:fontFamily="@font/poppins_regular"
+                            android:text="(127 reviews)"
+                            android:textColor="@color/docease_text_secondary"
+                            android:textSize="12sp" />
+
+                    </LinearLayout>
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnMessage"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:background="@drawable/bg_message_icon_circle"
+                        android:insetLeft="0dp"
+                        android:insetTop="0dp"
+                        android:insetRight="0dp"
+                        android:insetBottom="0dp"
+                        android:minWidth="0dp"
+                        android:minHeight="0dp"
+                        android:padding="12dp"
+                        app:backgroundTint="@null"
+                        app:icon="@drawable/ic_chat_teal"
+                        app:iconGravity="textStart"
+                        app:iconPadding="0dp"
+                        app:iconSize="24dp"
+                        app:iconTint="@color/docease_primary"
+                        app:layout_constraintBottom_toBottomOf="@id/ivDoctorImage"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/ivDoctorImage"
+                        app:rippleColor="@color/docease_primary_light" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Visit Details Section -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="24dp"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="VISIT DETAILS"
+                android:textColor="@color/docease_text_secondary"
+                android:textSize="12sp"
+                android:letterSpacing="0.1" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardVisitDetails"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="12dp"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp"
+                app:strokeColor="@color/docease_divider"
+                app:strokeWidth="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <!-- Date Row -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <View
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:background="@drawable/bg_detail_icon_circle" />
+
+                        <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_marginStart="-40dp"
+                            android:padding="10dp"
+                            android:src="@drawable/ic_calendar_outline"
+                            app:tint="@color/docease_primary" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="14dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/poppins_regular"
+                                android:text="Date"
+                                android:textColor="@color/docease_text_secondary"
+                                android:textSize="12sp" />
+
+                            <TextView
+                                android:id="@+id/tvVisitDate"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/poppins_medium"
+                                android:text="Monday, Dec 20, 2024"
+                                android:textColor="@color/docease_text_primary"
+                                android:textSize="14sp" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginVertical="14dp"
+                        android:background="@color/docease_divider" />
+
+                    <!-- Time Row -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <View
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:background="@drawable/bg_detail_icon_circle" />
+
+                        <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_marginStart="-40dp"
+                            android:padding="10dp"
+                            android:src="@drawable/ic_clock_outline"
+                            app:tint="@color/docease_primary" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="14dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/poppins_regular"
+                                android:text="Time"
+                                android:textColor="@color/docease_text_secondary"
+                                android:textSize="12sp" />
+
+                            <TextView
+                                android:id="@+id/tvVisitTime"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/poppins_medium"
+                                android:text="10:00 AM - 10:30 AM"
+                                android:textColor="@color/docease_text_primary"
+                                android:textSize="14sp" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginVertical="14dp"
+                        android:background="@color/docease_divider" />
+
+                    <!-- Location Row -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <View
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:background="@drawable/bg_detail_icon_circle" />
+
+                        <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_marginStart="-40dp"
+                            android:padding="10dp"
+                            android:src="@drawable/ic_location_outline"
+                            app:tint="@color/docease_primary" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="14dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/poppins_regular"
+                                android:text="Location"
+                                android:textColor="@color/docease_text_secondary"
+                                android:textSize="12sp" />
+
+                            <TextView
+                                android:id="@+id/tvVisitLocation"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/poppins_medium"
+                                android:text="City Medical Center"
+                                android:textColor="@color/docease_text_primary"
+                                android:textSize="14sp" />
+
+                            <TextView
+                                android:id="@+id/tvVisitAddress"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/poppins_regular"
+                                android:text="123 Healthcare Ave, Suite 456"
+                                android:textColor="@color/docease_text_secondary"
+                                android:textSize="12sp" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginVertical="14dp"
+                        android:background="@color/docease_divider" />
+
+                    <!-- Visit Type Row -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <View
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:background="@drawable/bg_detail_icon_circle" />
+
+                        <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_marginStart="-40dp"
+                            android:padding="10dp"
+                            android:src="@drawable/ic_visit_type"
+                            app:tint="@color/docease_primary" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="14dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/poppins_regular"
+                                android:text="Visit Type"
+                                android:textColor="@color/docease_text_secondary"
+                                android:textSize="12sp" />
+
+                            <TextView
+                                android:id="@+id/tvVisitType"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/poppins_medium"
+                                android:text="In-Person Consultation"
+                                android:textColor="@color/docease_text_primary"
+                                android:textSize="14sp" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Map Preview Section -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="24dp"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="LOCATION"
+                android:textColor="@color/docease_text_secondary"
+                android:textSize="12sp"
+                android:letterSpacing="0.1" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardMapPreview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="12dp"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp"
+                app:strokeColor="@color/docease_divider"
+                app:strokeWidth="1dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <!-- Map Placeholder -->
+                    <FrameLayout
+                        android:id="@+id/mapContainer"
+                        android:layout_width="match_parent"
+                        android:layout_height="160dp"
+                        android:background="@drawable/bg_map_placeholder"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <ImageView
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:layout_gravity="center"
+                            android:alpha="0.5"
+                            android:src="@drawable/ic_map"
+                            app:tint="@color/docease_text_secondary" />
+
+                        <!-- Location Pin Marker -->
+                        <ImageView
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:layout_gravity="center"
+                            android:layout_marginBottom="16dp"
+                            android:src="@drawable/ic_location_outline"
+                            app:tint="@color/docease_primary" />
+
+                    </FrameLayout>
+
+                    <!-- Get Directions Button -->
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnGetDirections"
+                        android:layout_width="wrap_content"
+                        android:layout_height="44dp"
+                        android:layout_margin="12dp"
+                        android:fontFamily="@font/poppins_medium"
+                        android:paddingHorizontal="20dp"
+                        android:text="Get Directions"
+                        android:textAllCaps="false"
+                        android:textColor="@color/white"
+                        android:textSize="13sp"
+                        app:backgroundTint="@color/docease_primary"
+                        app:cornerRadius="22dp"
+                        app:icon="@drawable/ic_navigation"
+                        app:iconGravity="textStart"
+                        app:iconPadding="8dp"
+                        app:iconSize="18dp"
+                        app:iconTint="@color/white"
+                        app:layout_constraintBottom_toBottomOf="@id/mapContainer"
+                        app:layout_constraintEnd_toEndOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Action Buttons Section -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="24dp"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="ACTIONS"
+                android:textColor="@color/docease_text_secondary"
+                android:textSize="12sp"
+                android:letterSpacing="0.1" />
+
+            <!-- Reschedule Button -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnReschedule"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="12dp"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="Reschedule Appointment"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                app:backgroundTint="@color/docease_primary"
+                app:cornerRadius="14dp"
+                app:icon="@drawable/ic_reschedule"
+                app:iconGravity="textStart"
+                app:iconPadding="12dp"
+                app:iconSize="20dp"
+                app:iconTint="@color/white" />
+
+            <!-- Cancel Button -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnCancelAppointment"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="12dp"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="Cancel Appointment"
+                android:textAllCaps="false"
+                android:textColor="#F44336"
+                android:textSize="15sp"
+                app:cornerRadius="14dp"
+                app:icon="@drawable/ic_cancel_red"
+                app:iconGravity="textStart"
+                app:iconPadding="12dp"
+                app:iconSize="20dp"
+                app:iconTint="#F44336"
+                app:rippleColor="#1AF44336"
+                app:strokeColor="#F44336"
+                app:strokeWidth="1.5dp" />
+
+            <!-- Help Text -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/poppins_regular"
+                android:gravity="center"
+                android:text="Need help? Contact our support team at\nsupport@docease.com"
+                android:textColor="@color/docease_text_secondary"
+                android:textSize="12sp"
+                android:lineSpacingExtra="4dp" />
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

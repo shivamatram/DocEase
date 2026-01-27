@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "989975997470",
+    "firebase_url": "https://docease-7577f-default-rtdb.firebaseio.com",
+    "project_id": "docease-7577f",
+    "storage_bucket": "docease-7577f.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:989975997470:android:80ae5ca410dd1122f9d20f",
+        "android_client_info": {
+          "package_name": "com.example.docease"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "989975997470-edde3olk9notra4mp6g12ubb2odf44ti.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.docease",
+            "certificate_hash": "9fcfc5d706a3336c12ff68209ddefec511a0c7ce"
+          }
+        },
+        {
+          "client_id": "989975997470-j59kip7hpndbop4q8h021jdlh5hohp57.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAI_Bwi5TQrHh5hI_ZnWCV86RWIaALIxgA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "989975997470-j59kip7hpndbop4q8h021jdlh5hohp57.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

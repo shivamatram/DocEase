@@ -1,0 +1,488 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F8F9FA"
+    android:fitsSystemWindows="true"
+    tools:context=".ui.patient.PatientDashboardActivity">
+
+    <!-- Main Content -->
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="60dp"
+        android:clipToPadding="false"
+        android:fillViewport="true"
+        android:overScrollMode="never"
+        android:scrollbars="none">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="20dp"
+            android:paddingTop="16dp"
+            android:paddingBottom="24dp">
+
+            <!-- ==================== HEADER SECTION ==================== -->
+
+            <!-- Profile Avatar Container -->
+            <FrameLayout
+                android:id="@+id/profileContainer"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <!-- Profile Avatar -->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/avatarCard"
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    app:cardCornerRadius="28dp"
+                    app:cardElevation="4dp"
+                    app:strokeWidth="0dp">
+
+                    <ImageView
+                        android:id="@+id/patientAvatar"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/ic_avatar_placeholder"
+                        android:contentDescription="Patient Profile" />
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- Online Status Indicator -->
+                <View
+                    android:id="@+id/onlineIndicator"
+                    android:layout_width="14dp"
+                    android:layout_height="14dp"
+                    android:layout_gravity="bottom|end"
+                    android:background="@drawable/bg_online_indicator" />
+
+            </FrameLayout>
+
+            <!-- Greeting Small Text -->
+            <TextView
+                android:id="@+id/greetingSmallText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="14dp"
+                android:fontFamily="@font/poppins_regular"
+                android:text="Good Morning,"
+                android:textColor="@color/docease_text_secondary"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toTopOf="@id/patientNameText"
+                app:layout_constraintEnd_toStartOf="@id/notificationButton"
+                app:layout_constraintStart_toEndOf="@id/profileContainer"
+                app:layout_constraintTop_toTopOf="@id/profileContainer"
+                app:layout_constraintVertical_chainStyle="packed" />
+
+            <!-- Patient Name Text -->
+            <TextView
+                android:id="@+id/patientNameText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="14dp"
+                android:layout_marginTop="2dp"
+                android:ellipsize="end"
+                android:fontFamily="@font/poppins_bold"
+                android:maxLines="1"
+                android:textColor="@color/docease_text_primary"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="@id/profileContainer"
+                app:layout_constraintEnd_toStartOf="@id/notificationButton"
+                app:layout_constraintStart_toEndOf="@id/profileContainer"
+                app:layout_constraintTop_toBottomOf="@id/greetingSmallText"
+                tools:text="Sarah Jenkins" />
+
+            <!-- Notification Button -->
+            <FrameLayout
+                android:id="@+id/notificationButton"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="@drawable/bg_circular_button"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackgroundBorderless"
+                app:layout_constraintBottom_toBottomOf="@id/profileContainer"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/profileContainer">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:contentDescription="Notifications"
+                    android:src="@drawable/ic_notification" />
+
+                <!-- Notification Badge -->
+                <TextView
+                    android:id="@+id/notificationBadge"
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:layout_gravity="top|end"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginEnd="4dp"
+                    android:background="@drawable/bg_notification_badge"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:gravity="center"
+                    android:textColor="@color/docease_background"
+                    android:textSize="10sp"
+                    android:visibility="gone"
+                    tools:text="2"
+                    tools:visibility="visible" />
+
+            </FrameLayout>
+
+            <!-- ==================== SEARCH BAR SECTION ==================== -->
+
+            <LinearLayout
+                android:id="@+id/searchBar"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_marginTop="24dp"
+                android:background="@drawable/bg_search_bar"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingHorizontal="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/profileContainer">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_search"
+                    android:contentDescription="Search" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:text="Find a doctor or specialist"
+                    android:textColor="@color/docease_text_hint"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
+
+            <!-- ==================== UPCOMING SCHEDULE SECTION ==================== -->
+
+            <!-- Section Header -->
+            <TextView
+                android:id="@+id/upcomingScheduleTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="Upcoming Schedule"
+                android:textColor="@color/docease_text_primary"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/searchBar" />
+
+            <!-- See All Button -->
+            <TextView
+                android:id="@+id/seeAllUpcoming"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_medium"
+                android:foreground="?attr/selectableItemBackground"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="4dp"
+                android:text="See All"
+                android:textColor="@color/docease_primary"
+                android:textSize="14sp"
+                app:layout_constraintBaseline_toBaselineOf="@id/upcomingScheduleTitle"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <!-- Upcoming Appointment Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/upcomingAppointmentCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground"
+                app:cardBackgroundColor="@android:color/transparent"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="0dp"
+                app:strokeWidth="0dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/upcomingScheduleTitle">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_upcoming_appointment_card"
+                    android:padding="18dp">
+
+                    <!-- Doctor Avatar -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/upcomingDoctorAvatarContainer"
+                        android:layout_width="52dp"
+                        android:layout_height="52dp"
+                        app:cardCornerRadius="26dp"
+                        app:cardElevation="0dp"
+                        app:strokeColor="#FFFFFF"
+                        app:strokeWidth="2dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <ImageView
+                            android:id="@+id/upcomingDoctorAvatar"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/ic_avatar_placeholder"
+                            android:contentDescription="Doctor Avatar" />
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <!-- Doctor Name -->
+                    <TextView
+                        android:id="@+id/upcomingDoctorName"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="14dp"
+                        android:layout_marginEnd="12dp"
+                        android:ellipsize="end"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:maxLines="1"
+                        android:textColor="@color/docease_background"
+                        android:textSize="16sp"
+                        app:layout_constraintBottom_toTopOf="@id/upcomingDoctorSpecialty"
+                        app:layout_constraintEnd_toStartOf="@id/videoCallButton"
+                        app:layout_constraintStart_toEndOf="@id/upcomingDoctorAvatarContainer"
+                        app:layout_constraintTop_toTopOf="@id/upcomingDoctorAvatarContainer"
+                        app:layout_constraintVertical_chainStyle="packed"
+                        tools:text="Dr. Albert Flores" />
+
+                    <!-- Doctor Specialty -->
+                    <TextView
+                        android:id="@+id/upcomingDoctorSpecialty"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="14dp"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginEnd="12dp"
+                        android:ellipsize="end"
+                        android:fontFamily="@font/poppins_regular"
+                        android:maxLines="1"
+                        android:textColor="#B8E8E5"
+                        android:textSize="13sp"
+                        app:layout_constraintBottom_toBottomOf="@id/upcomingDoctorAvatarContainer"
+                        app:layout_constraintEnd_toStartOf="@id/videoCallButton"
+                        app:layout_constraintStart_toEndOf="@id/upcomingDoctorAvatarContainer"
+                        app:layout_constraintTop_toBottomOf="@id/upcomingDoctorName"
+                        tools:text="Surgeon" />
+
+                    <!-- Video Call Button -->
+                    <FrameLayout
+                        android:id="@+id/videoCallButton"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:background="@drawable/bg_video_call_button"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="?attr/selectableItemBackgroundBorderless"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <ImageView
+                            android:layout_width="22dp"
+                            android:layout_height="22dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/ic_video_teal"
+                            android:contentDescription="Video Call" />
+
+                    </FrameLayout>
+
+                    <!-- Divider -->
+                    <View
+                        android:id="@+id/divider"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="16dp"
+                        android:alpha="0.3"
+                        android:background="@color/docease_background"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/upcomingDoctorAvatarContainer" />
+
+                    <!-- Date Container -->
+                    <LinearLayout
+                        android:id="@+id/dateContainer"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="14dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/divider">
+
+                        <ImageView
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:src="@drawable/ic_calendar_white"
+                            android:contentDescription="Date" />
+
+                        <TextView
+                            android:id="@+id/upcomingDate"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:fontFamily="@font/poppins_medium"
+                            android:textColor="@color/docease_background"
+                            android:textSize="13sp"
+                            tools:text="Today, 12th June" />
+
+                    </LinearLayout>
+
+                    <!-- Time Container -->
+                    <LinearLayout
+                        android:id="@+id/timeContainer"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="14dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        app:layout_constraintStart_toEndOf="@id/dateContainer"
+                        app:layout_constraintTop_toBottomOf="@id/divider">
+
+                        <ImageView
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:src="@drawable/ic_clock_white"
+                            android:contentDescription="Time" />
+
+                        <TextView
+                            android:id="@+id/upcomingTime"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:fontFamily="@font/poppins_medium"
+                            android:textColor="@color/docease_background"
+                            android:textSize="13sp"
+                            tools:text="11:00 AM – 12:00 PM" />
+
+                    </LinearLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- ==================== DOCTOR SPECIALTY SECTION ==================== -->
+
+            <!-- Section Header -->
+            <TextView
+                android:id="@+id/specialtyTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="Doctor Specialty"
+                android:textColor="@color/docease_text_primary"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/upcomingAppointmentCard" />
+
+            <!-- Specialty RecyclerView (Horizontal) -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/specialtyRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:clipToPadding="false"
+                android:nestedScrollingEnabled="false"
+                android:orientation="horizontal"
+                android:overScrollMode="never"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/specialtyTitle"
+                tools:itemCount="4"
+                tools:listitem="@layout/item_specialty" />
+
+            <!-- ==================== TOP SPECIALISTS SECTION ==================== -->
+
+            <!-- Section Header -->
+            <TextView
+                android:id="@+id/topSpecialistsTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="Top Specialists"
+                android:textColor="@color/docease_text_primary"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/specialtyRecyclerView" />
+
+            <!-- Filter Button -->
+            <FrameLayout
+                android:id="@+id/filterButton"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackgroundBorderless"
+                app:layout_constraintBottom_toBottomOf="@id/topSpecialistsTitle"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/topSpecialistsTitle">
+
+                <ImageView
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_filter"
+                    android:contentDescription="Filter" />
+
+            </FrameLayout>
+
+            <!-- Top Specialists RecyclerView (Vertical) -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/topSpecialistsRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:clipToPadding="false"
+                android:nestedScrollingEnabled="false"
+                android:overScrollMode="never"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/topSpecialistsTitle"
+                tools:itemCount="3"
+                tools:listitem="@layout/item_top_specialist" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <!-- Bottom Navigation Bar -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigation"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_gravity="bottom"
+        android:background="@color/docease_background"
+        app:elevation="16dp"
+        app:itemIconTint="@color/bottom_nav_colors"
+        app:itemTextColor="@color/bottom_nav_colors"
+        app:labelVisibilityMode="labeled"
+        app:menu="@menu/bottom_nav_patient" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

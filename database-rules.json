@@ -1,0 +1,105 @@
+{
+  "rules": {
+    "users": {
+      "$uid": {
+        ".read": "$uid === auth.uid || root.child('users/' + auth.uid + '/role').val() === 'admin'",
+        ".write": "$uid === auth.uid",
+        ".validate": "newData.hasChildren(['uid', 'email', 'role', 'createdAt'])",
+        "uid": {
+          ".validate": "newData.val() === $uid"
+        },
+        "email": {
+          ".validate": "newData.isString() && newData.val().length > 0"
+        },
+        "role": {
+          ".validate": "newData.val() === 'doctor' || newData.val() === 'patient'"
+        }
+      }
+    },
+    
+    "doctors": {
+      "$uid": {
+        ".read": "auth != null",
+        ".write": "$uid === auth.uid && root.child('users/' + auth.uid + '/role').val() === 'doctor'",
+        ".validate": "newData.hasChildren(['uid', 'name', 'email', 'specialization'])",
+        "uid": {
+          ".validate": "newData.val() === $uid"
+        },
+        "rating": {
+          ".validate": "newData.isNumber() && newData.val() >= 0 && newData.val() <= 5"
+        },
+        "consultationFee": {
+          ".validate": "newData.isNumber() && newData.val() >= 0"
+        }
+      },
+      ".indexOn": ["specialization", "rating", "isAvailable"]
+    },
+    
+    "patients": {
+      "$uid": {
+        ".read": "$uid === auth.uid || root.child('users/' + auth.uid + '/role').val() === 'doctor'",
+        ".write": "$uid === auth.uid && root.child('users/' + auth.uid + '/role').val() === 'patient'",
+        ".validate": "newData.hasChildren(['uid', 'name', 'email'])",
+        "uid": {
+          ".validate": "newData.val() === $uid"
+        },
+        "age": {
+          ".validate": "newData.isNumber() && newData.val() > 0 && newData.val() < 150"
+        }
+      }
+    },
+    
+    "appointments": {
+      ".read": "auth != null",
+      ".indexOn": ["doctorId", "patientId", "status", "date"],
+      "$appointmentId": {
+        ".write": "auth != null",
+        ".validate": "newData.hasChildren(['appointmentId', 'doctorId', 'patientId', 'date', 'status'])",
+        "status": {
+          ".validate": "newData.val() === 'PENDING' || newData.val() === 'CONFIRMED' || newData.val() === 'COMPLETED' || newData.val() === 'CANCELLED'"
+        },
+        "consultationFee": {
+          ".validate": "newData.isNumber() && newData.val() >= 0"
+        }
+      }
+    },
+    
+    "availability": {
+      "$doctorId": {
+        ".read": "auth != null",
+        ".write": "$doctorId === auth.uid && root.child('users/' + auth.uid + '/role').val() === 'doctor'",
+        "$date": {
+          "$slotId": {
+            ".validate": "newData.hasChildren(['slotId', 'startTime', 'endTime', 'isBooked'])",
+            "isBooked": {
+              ".validate": "newData.isBoolean()"
+            }
+          }
+        }
+      }
+    },
+    
+    "notifications": {
+      "$uid": {
+        ".read": "$uid === auth.uid",
+        ".write": "auth != null",
+        "$notificationId": {
+          ".validate": "newData.hasChildren(['notificationId', 'title', 'message', 'timestamp'])",
+          "isRead": {
+            ".write": "$uid === auth.uid"
+          }
+        }
+      }
+    },
+    
+    "tokens": {
+      "$uid": {
+        ".read": "false",
+        ".write": "$uid === auth.uid",
+        "fcmToken": {
+          ".validate": "newData.isString() && newData.val().length > 0"
+        }
+      }
+    }
+  }
+}

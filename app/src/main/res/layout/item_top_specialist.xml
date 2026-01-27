@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Top Specialist / Doctor card item layout -->
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/specialistCard"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="12dp"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?attr/selectableItemBackground"
+    app:cardBackgroundColor="@color/docease_background"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="2dp"
+    app:strokeWidth="0dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="14dp">
+
+        <!-- Doctor Avatar -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/avatarContainer"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            app:cardCornerRadius="14dp"
+            app:cardElevation="0dp"
+            app:strokeWidth="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/doctorAvatar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_avatar_placeholder"
+                android:contentDescription="Doctor Avatar" />
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Doctor Name -->
+        <TextView
+            android:id="@+id/doctorName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="14dp"
+            android:layout_marginEnd="8dp"
+            android:ellipsize="end"
+            android:fontFamily="@font/poppins_semibold"
+            android:maxLines="1"
+            android:textColor="@color/docease_text_primary"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toStartOf="@id/bookButton"
+            app:layout_constraintStart_toEndOf="@id/avatarContainer"
+            app:layout_constraintTop_toTopOf="@id/avatarContainer"
+            tools:text="Dr. Dianne Russell" />
+
+        <!-- Specialty & Distance -->
+        <TextView
+            android:id="@+id/specialtyDistance"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="14dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginEnd="8dp"
+            android:ellipsize="end"
+            android:fontFamily="@font/poppins_regular"
+            android:maxLines="1"
+            android:textColor="@color/docease_text_secondary"
+            android:textSize="13sp"
+            app:layout_constraintEnd_toStartOf="@id/bookButton"
+            app:layout_constraintStart_toEndOf="@id/avatarContainer"
+            app:layout_constraintTop_toBottomOf="@id/doctorName"
+            tools:text="Dermatologist • 2.5km away" />
+
+        <!-- Badges Container -->
+        <LinearLayout
+            android:id="@+id/badgesContainer"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="14dp"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="@id/avatarContainer"
+            app:layout_constraintEnd_toStartOf="@id/bookButton"
+            app:layout_constraintStart_toEndOf="@id/avatarContainer"
+            app:layout_constraintTop_toBottomOf="@id/specialtyDistance">
+
+            <!-- Rating Badge -->
+            <LinearLayout
+                android:id="@+id/ratingBadge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_rating_badge"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="4dp">
+
+                <ImageView
+                    android:layout_width="14dp"
+                    android:layout_height="14dp"
+                    android:src="@drawable/ic_star_filled"
+                    android:contentDescription="Rating" />
+
+                <TextView
+                    android:id="@+id/ratingText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:fontFamily="@font/poppins_medium"
+                    android:textColor="#E6A700"
+                    android:textSize="12sp"
+                    tools:text="4.8" />
+
+            </LinearLayout>
+
+            <!-- Reviews Badge -->
+            <LinearLayout
+                android:id="@+id/reviewsBadge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/bg_reviews_badge"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="4dp">
+
+                <ImageView
+                    android:layout_width="14dp"
+                    android:layout_height="14dp"
+                    android:src="@drawable/ic_reviews"
+                    android:contentDescription="Reviews" />
+
+                <TextView
+                    android:id="@+id/reviewsText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:fontFamily="@font/poppins_medium"
+                    android:textColor="#5B8DEF"
+                    android:textSize="12sp"
+                    tools:text="124" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- Book Button -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/bookButton"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:backgroundTint="@color/docease_primary"
+            android:fontFamily="@font/poppins_semibold"
+            android:minWidth="70dp"
+            android:paddingHorizontal="16dp"
+            android:text="Book"
+            android:textAllCaps="false"
+            android:textColor="@color/docease_background"
+            android:textSize="13sp"
+            app:cornerRadius="12dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>

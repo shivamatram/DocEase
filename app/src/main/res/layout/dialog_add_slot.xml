@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white"
+    android:orientation="vertical"
+    android:padding="24dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_semibold"
+        android:text="Add Time Slot"
+        android:textColor="#2D3436"
+        android:textSize="18sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:fontFamily="@font/poppins_regular"
+        android:text="Select a session and time for the new slot"
+        android:textColor="#8E9AAB"
+        android:textSize="14sp" />
+
+    <!-- Session Selection -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/poppins_medium"
+        android:text="Session"
+        android:textColor="#2D3436"
+        android:textSize="14sp" />
+
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/sessionChipGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:singleSelection="true">
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipMorning"
+            style="@style/Widget.Material3.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_medium"
+            android:text="🌅 Morning"
+            android:textColor="#2D3436"
+            app:checkedIconVisible="false"
+            app:chipBackgroundColor="@color/chip_background_selector"
+            app:chipCornerRadius="20dp"
+            app:chipStrokeColor="#E0E0E0"
+            app:chipStrokeWidth="1dp" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipAfternoon"
+            style="@style/Widget.Material3.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_medium"
+            android:text="🌞 Afternoon"
+            android:textColor="#2D3436"
+            app:checkedIconVisible="false"
+            app:chipBackgroundColor="@color/chip_background_selector"
+            app:chipCornerRadius="20dp"
+            app:chipStrokeColor="#E0E0E0"
+            app:chipStrokeWidth="1dp" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipEvening"
+            style="@style/Widget.Material3.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_medium"
+            android:text="🌙 Evening"
+            android:textColor="#2D3436"
+            app:checkedIconVisible="false"
+            app:chipBackgroundColor="@color/chip_background_selector"
+            app:chipCornerRadius="20dp"
+            app:chipStrokeColor="#E0E0E0"
+            app:chipStrokeWidth="1dp" />
+
+    </com.google.android.material.chip.ChipGroup>
+
+    <!-- Start Time -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/poppins_medium"
+        android:text="Start Time"
+        android:textColor="#2D3436"
+        android:textSize="14sp" />
+
+    <LinearLayout
+        android:id="@+id/startTimeContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/bg_profile_input"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="14dp">
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_time"
+            app:tint="#8E9AAB" />
+
+        <TextView
+            android:id="@+id/tvStartTime"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_weight="1"
+            android:fontFamily="@font/poppins_regular"
+            android:text="Select start time"
+            android:textColor="#B8C5D1"
+            android:textSize="14sp" />
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_dropdown"
+            app:tint="#8E9AAB" />
+
+    </LinearLayout>
+
+    <!-- End Time -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/poppins_medium"
+        android:text="End Time"
+        android:textColor="#2D3436"
+        android:textSize="14sp" />
+
+    <LinearLayout
+        android:id="@+id/endTimeContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/bg_profile_input"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="14dp">
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_time"
+            app:tint="#8E9AAB" />
+
+        <TextView
+            android:id="@+id/tvEndTime"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_weight="1"
+            android:fontFamily="@font/poppins_regular"
+            android:text="Select end time"
+            android:textColor="#B8C5D1"
+            android:textSize="14sp" />
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_dropdown"
+            app:tint="#8E9AAB" />
+
+    </LinearLayout>
+
+    <!-- Slot Duration -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/poppins_medium"
+        android:text="Slot Duration"
+        android:textColor="#2D3436"
+        android:textSize="14sp" />
+
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/durationChipGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:singleSelection="true">
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip15Min"
+            style="@style/Widget.Material3.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_medium"
+            android:text="15 min"
+            android:textColor="#2D3436"
+            app:checkedIconVisible="false"
+            app:chipBackgroundColor="@color/chip_background_selector"
+            app:chipCornerRadius="20dp"
+            app:chipStrokeColor="#E0E0E0"
+            app:chipStrokeWidth="1dp" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip30Min"
+            style="@style/Widget.Material3.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:fontFamily="@font/poppins_medium"
+            android:text="30 min"
+            android:textColor="#2D3436"
+            app:checkedIconVisible="false"
+            app:chipBackgroundColor="@color/chip_background_selector"
+            app:chipCornerRadius="20dp"
+            app:chipStrokeColor="#E0E0E0"
+            app:chipStrokeWidth="1dp" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip45Min"
+            style="@style/Widget.Material3.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_medium"
+            android:text="45 min"
+            android:textColor="#2D3436"
+            app:checkedIconVisible="false"
+            app:chipBackgroundColor="@color/chip_background_selector"
+            app:chipCornerRadius="20dp"
+            app:chipStrokeColor="#E0E0E0"
+            app:chipStrokeWidth="1dp" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip60Min"
+            style="@style/Widget.Material3.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_medium"
+            android:text="60 min"
+            android:textColor="#2D3436"
+            app:checkedIconVisible="false"
+            app:chipBackgroundColor="@color/chip_background_selector"
+            app:chipCornerRadius="20dp"
+            app:chipStrokeColor="#E0E0E0"
+            app:chipStrokeWidth="1dp" />
+
+    </com.google.android.material.chip.ChipGroup>
+
+    <!-- Add Button -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnAddSlot"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:layout_marginTop="24dp"
+        android:backgroundTint="#4DD0C9"
+        android:fontFamily="@font/poppins_semibold"
+        android:text="Add Slots"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        android:textSize="15sp"
+        app:cornerRadius="12dp" />
+
+</LinearLayout>

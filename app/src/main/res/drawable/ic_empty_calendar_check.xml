@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Empty state calendar illustration with checkmark -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    
+    <!-- Calendar base -->
+    <item>
+        <vector
+            android:width="120dp"
+            android:height="120dp"
+            android:viewportWidth="100"
+            android:viewportHeight="100">
+            
+            <!-- Calendar body (cream/beige) -->
+            <path
+                android:fillColor="#F5F0E8"
+                android:pathData="M20,25 L80,25 L80,85 Q80,90 75,90 L25,90 Q20,90 20,85 L20,25 Z"/>
+            
+            <!-- Calendar top binding rings -->
+            <path
+                android:fillColor="#E8E0D0"
+                android:pathData="M35,15 L35,30 M35,15 Q35,12 38,12 Q41,12 41,15 L41,30 Q41,33 38,33 Q35,33 35,30 Z"/>
+            <path
+                android:fillColor="#E8E0D0"
+                android:pathData="M59,15 L59,30 M59,15 Q59,12 62,12 Q65,12 65,15 L65,30 Q65,33 62,33 Q59,33 59,30 Z"/>
+            
+            <!-- Checkmark -->
+            <path
+                android:fillColor="@color/docease_primary"
+                android:strokeWidth="0"
+                android:pathData="M40,55 L48,65 L65,45"
+                android:strokeColor="@color/docease_primary"
+                android:strokeLineCap="round"
+                android:strokeLineJoin="round"/>
+            
+        </vector>
+    </item>
+    
+</layer-list>

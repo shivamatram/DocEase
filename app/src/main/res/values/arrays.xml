@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Medical Specializations List -->
+    <string-array name="specializations">
+        <item>Select Specialization</item>
+        <item>General Physician</item>
+        <item>Cardiologist</item>
+        <item>Dermatologist</item>
+        <item>Neurologist</item>
+        <item>Orthopedic Surgeon</item>
+        <item>Pediatrician</item>
+        <item>Psychiatrist</item>
+        <item>Gynecologist</item>
+        <item>Ophthalmologist</item>
+        <item>ENT Specialist</item>
+        <item>Dentist</item>
+        <item>Urologist</item>
+        <item>Oncologist</item>
+        <item>Pulmonologist</item>
+        <item>Gastroenterologist</item>
+        <item>Endocrinologist</item>
+        <item>Nephrologist</item>
+        <item>Rheumatologist</item>
+        <item>Allergist</item>
+        <item>Anesthesiologist</item>
+        <item>Radiologist</item>
+        <item>Pathologist</item>
+        <item>Physical Therapist</item>
+        <item>Other</item>
+    </string-array>
+</resources>

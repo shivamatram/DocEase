@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/dateCard"
+    android:layout_width="56dp"
+    android:layout_height="76dp"
+    android:layout_marginEnd="12dp"
+    app:cardCornerRadius="14dp"
+    app:cardElevation="0dp"
+    app:cardBackgroundColor="@android:color/transparent">
+
+    <LinearLayout
+        android:id="@+id/dateCardContent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:background="@drawable/bg_date_card_selector"
+        android:padding="8dp">
+
+        <!-- Day of Week (Mon, Tue, etc.) -->
+        <TextView
+            android:id="@+id/tvDayOfWeek"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mon"
+            android:textSize="12sp"
+            android:fontFamily="@font/poppins_medium"
+            android:textColor="@color/docease_text_secondary"
+            android:includeFontPadding="false" />
+
+        <!-- Day Number -->
+        <TextView
+            android:id="@+id/tvDayNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="12"
+            android:textSize="20sp"
+            android:fontFamily="@font/poppins_semibold"
+            android:textColor="@color/docease_text_primary"
+            android:includeFontPadding="false"
+            android:layout_marginTop="4dp" />
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

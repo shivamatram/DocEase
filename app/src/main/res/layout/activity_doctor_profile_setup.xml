@@ -1,0 +1,415 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/scrollView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/docease_background"
+    android:fillViewport="true"
+    android:overScrollMode="never"
+    tools:context=".ui.profile.DoctorProfileSetupActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="32dp">
+
+        <!-- ==================== TOP APP BAR ==================== -->
+
+        <!-- Back Button -->
+        <ImageButton
+            android:id="@+id/btnBack"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Back"
+            android:padding="12dp"
+            android:src="@drawable/ic_back_arrow"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/docease_text_primary" />
+
+        <!-- Title -->
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_semibold"
+            android:text="Profile Setup"
+            android:textColor="@color/docease_text_primary"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="@id/btnBack"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/btnBack" />
+
+        <!-- ==================== HEADER SECTION ==================== -->
+
+        <!-- Main Heading -->
+        <TextView
+            android:id="@+id/tvHeading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginTop="24dp"
+            android:fontFamily="@font/poppins_bold"
+            android:text="Set up your profile"
+            android:textColor="@color/docease_text_primary"
+            android:textSize="26sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnBack" />
+
+        <!-- Subtitle -->
+        <TextView
+            android:id="@+id/tvSubtitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/poppins_regular"
+            android:lineSpacingExtra="4dp"
+            android:text="Update your information so patients can get to know you better."
+            android:textColor="@color/docease_text_secondary"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvHeading" />
+
+        <!-- ==================== PROFILE PHOTO SECTION ==================== -->
+
+        <!-- Avatar Container -->
+        <FrameLayout
+            android:id="@+id/avatarContainer"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_marginTop="32dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvSubtitle">
+
+            <!-- Avatar Circle Background -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/avatarCard"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                app:cardBackgroundColor="#E8F6F6"
+                app:cardCornerRadius="60dp"
+                app:cardElevation="4dp"
+                app:strokeWidth="0dp">
+
+                <ImageView
+                    android:id="@+id/imgAvatar"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_doctor_avatar"
+                    android:contentDescription="Profile Photo" />
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Camera Button -->
+            <FrameLayout
+                android:id="@+id/btnCamera"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_gravity="bottom|end"
+                android:background="@drawable/bg_camera_button"
+                android:clickable="true"
+                android:elevation="4dp"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackgroundBorderless">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_camera"
+                    android:contentDescription="Change Photo" />
+
+            </FrameLayout>
+
+        </FrameLayout>
+
+        <!-- Change Photo Text -->
+        <TextView
+            android:id="@+id/tvChangePhoto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:fontFamily="@font/poppins_medium"
+            android:foreground="?attr/selectableItemBackground"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="8dp"
+            android:text="Change Photo"
+            android:textColor="@color/docease_primary"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/avatarContainer" />
+
+        <!-- ==================== FORM FIELDS ==================== -->
+
+        <!-- Full Name Label -->
+        <TextView
+            android:id="@+id/labelFullName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginTop="24dp"
+            android:fontFamily="@font/poppins_medium"
+            android:text="Full Name"
+            android:textColor="@color/docease_text_primary"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvChangePhoto" />
+
+        <!-- Full Name Input -->
+        <LinearLayout
+            android:id="@+id/inputFullName"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/bg_profile_input_selector"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingHorizontal="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/labelFullName">
+
+            <ImageView
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:src="@drawable/ic_person_outline"
+                android:contentDescription="Name Icon" />
+
+            <EditText
+                android:id="@+id/etFullName"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="12dp"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:fontFamily="@font/poppins_regular"
+                android:hint="Dr. "
+                android:inputType="textPersonName|textCapWords"
+                android:maxLines="1"
+                android:textColor="@color/docease_text_primary"
+                android:textColorHint="@color/docease_text_hint"
+                android:textSize="15sp" />
+
+        </LinearLayout>
+
+        <!-- Specialization Label -->
+        <TextView
+            android:id="@+id/labelSpecialization"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/poppins_medium"
+            android:text="Specialization"
+            android:textColor="@color/docease_text_primary"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/inputFullName" />
+
+        <!-- Specialization Dropdown -->
+        <LinearLayout
+            android:id="@+id/dropdownSpecialization"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/bg_dropdown_field"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingHorizontal="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/labelSpecialization">
+
+            <ImageView
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:src="@drawable/ic_stethoscope"
+                android:contentDescription="Specialization Icon" />
+
+            <TextView
+                android:id="@+id/tvSpecialization"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_weight="1"
+                android:ellipsize="end"
+                android:fontFamily="@font/poppins_regular"
+                android:maxLines="1"
+                android:text="Select Specialization"
+                android:textColor="@color/docease_text_hint"
+                android:textSize="15sp" />
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_dropdown"
+                android:contentDescription="Dropdown Arrow" />
+
+        </LinearLayout>
+
+        <!-- Clinic Address Label -->
+        <TextView
+            android:id="@+id/labelClinicAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/poppins_medium"
+            android:text="Clinic Address"
+            android:textColor="@color/docease_text_primary"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/dropdownSpecialization" />
+
+        <!-- Clinic Address Input -->
+        <LinearLayout
+            android:id="@+id/inputClinicAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/bg_profile_input_selector"
+            android:gravity="start"
+            android:minHeight="100dp"
+            android:orientation="horizontal"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="14dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/labelClinicAddress">
+
+            <ImageView
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:layout_marginTop="2dp"
+                android:src="@drawable/ic_location"
+                android:contentDescription="Location Icon" />
+
+            <EditText
+                android:id="@+id/etClinicAddress"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:fontFamily="@font/poppins_regular"
+                android:gravity="top|start"
+                android:hint="123 Medical Center Blvd, Suite 400,\nNew York, NY 10001"
+                android:inputType="textMultiLine|textCapSentences"
+                android:lineSpacingExtra="4dp"
+                android:minLines="3"
+                android:textColor="@color/docease_text_primary"
+                android:textColorHint="@color/docease_text_hint"
+                android:textSize="15sp" />
+
+        </LinearLayout>
+
+        <!-- Consultation Fee Label -->
+        <TextView
+            android:id="@+id/labelConsultationFee"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/poppins_medium"
+            android:text="Consultation Fee"
+            android:textColor="@color/docease_text_primary"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/inputClinicAddress" />
+
+        <!-- Consultation Fee Input -->
+        <LinearLayout
+            android:id="@+id/inputConsultationFee"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/bg_profile_input_selector"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingHorizontal="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/labelConsultationFee">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="$"
+                android:textColor="@color/docease_text_hint"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/etConsultationFee"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="12dp"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:fontFamily="@font/poppins_regular"
+                android:hint="0.00"
+                android:inputType="numberDecimal"
+                android:maxLines="1"
+                android:textColor="@color/docease_text_primary"
+                android:textColorHint="@color/docease_text_hint"
+                android:textSize="15sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_medium"
+                android:text="USD"
+                android:textColor="@color/docease_text_secondary"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+        <!-- ==================== SAVE BUTTON ==================== -->
+
+        <Button
+            android:id="@+id/btnSave"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginTop="32dp"
+            android:background="@drawable/bg_save_button"
+            android:drawableEnd="@drawable/ic_check"
+            android:drawablePadding="8dp"
+            android:elevation="4dp"
+            android:fontFamily="@font/poppins_semibold"
+            android:text="Save Profile"
+            android:textAllCaps="false"
+            android:textColor="@color/docease_background"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/inputConsultationFee" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

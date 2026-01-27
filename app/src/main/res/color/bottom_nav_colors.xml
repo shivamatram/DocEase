@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    
+    <!-- Bottom navigation item colors -->
+    <item android:color="@color/docease_primary" android:state_checked="true" />
+    <item android:color="@color/docease_text_hint" />
+    
+</selector>

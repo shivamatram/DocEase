@@ -1,0 +1,46 @@
+<resources>
+    <string name="app_name">DocEase</string>
+    
+    <!-- Common Actions -->
+    <string name="back">Back</string>
+    <string name="favorite">Favorite</string>
+    <string name="search">Search</string>
+    <string name="filter">Filter</string>
+    <string name="close">Close</string>
+    <string name="confirm">Confirm</string>
+    <string name="cancel">Cancel</string>
+    
+    <!-- Doctor Details -->
+    <string name="doctor_details">Doctor Details</string>
+    <string name="book_appointment">Book Appointment</string>
+    <string name="consultation_fee">Consultation Fee</string>
+    <string name="about_doctor">About Doctor</string>
+    <string name="schedules">Schedules</string>
+    <string name="available_time">Available Time</string>
+    <string name="read_more">Read more</string>
+    <string name="read_less">Read less</string>
+    <string name="call">Call</string>
+    <string name="message">Message</string>
+    <string name="video">Video</string>
+    <string name="patients">Patients</string>
+    <string name="years_exp">Years Exp.</string>
+    <string name="rating">Rating</string>
+    
+    <!-- Book Appointment -->
+    <string name="select_date">Select Date</string>
+    <string name="note_to_doctor">Note to Doctor</string>
+    <string name="note_hint">Briefly describe your problem…</string>
+    <string name="admin_fee">Admin Fee</string>
+    <string name="total_payment">Total Payment</string>
+    <string name="confirm_appointment">Confirm Appointment</string>
+    <string name="today">TODAY</string>
+
+    <!-- Login screen texts - patient and doctor variants -->
+    <string name="login_title_patient">Manage your health</string>
+    <string name="login_subtitle_patient">Book appointments with top specialists near you.</string>
+    <string name="login_title_doctor">Manage your practice</string>
+    <string name="login_subtitle_doctor">Connect with patients and manage appointments and availability.</string>
+
+    <!-- Placeholder for Google default web client id (provided by google-services plugin) -->
+    <string name="default_web_client_id">989975997470-edde3olk9notra4mp6g12ubb2odf44ti.apps.googleusercontent.com</string>
+</resources>

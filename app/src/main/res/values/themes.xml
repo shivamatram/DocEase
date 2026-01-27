@@ -1,0 +1,158 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.DocEase" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- DocEase Brand Colors -->
+        <item name="colorPrimary">@color/docease_primary</item>
+        <item name="colorPrimaryDark">@color/docease_primary_dark</item>
+        <item name="colorAccent">@color/docease_primary</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+    </style>
+
+    <style name="Theme.DocEase" parent="Base.Theme.DocEase" />
+    
+    <!-- Splash Screen Theme - Edge to Edge, No Action Bar -->
+    <style name="Theme.DocEase.Splash" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="android:windowBackground">@drawable/bg_splash_gradient</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:windowLightNavigationBar">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowFullscreen">false</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="colorPrimary">@color/docease_primary</item>
+    </style>
+    
+    <!-- Dashboard Theme - Light Status Bar -->
+    <style name="Theme.DocEase.Dashboard" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:windowLightNavigationBar">true</item>
+        <item name="colorPrimary">@color/docease_primary</item>
+    </style>
+    
+    <!-- FAB Rounded Square Shape Overlay -->
+    <style name="FabRoundedSquare" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">16dp</item>
+    </style>
+    
+    <!-- FAB Shape Appearance for DocEase -->
+    <style name="ShapeAppearance.DocEase.FAB.Rounded" parent="ShapeAppearance.Material3.Corner.Medium">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">16dp</item>
+    </style>
+    
+    <!-- DocEase Alert Dialog Style -->
+    <style name="DocEaseAlertDialog" parent="ThemeOverlay.Material3.MaterialAlertDialog">
+        <item name="colorPrimary">@color/docease_primary</item>
+        <item name="colorSurface">@color/docease_background</item>
+        <item name="android:textColorPrimary">@color/docease_text_primary</item>
+        <item name="android:windowTitleStyle">@style/DocEaseDialogTitle</item>
+        <item name="buttonBarPositiveButtonStyle">@style/DocEaseDialogButton</item>
+        <item name="buttonBarNegativeButtonStyle">@style/DocEaseDialogButton</item>
+    </style>
+    
+    <style name="DocEaseDialogTitle" parent="MaterialAlertDialog.Material3.Title.Text">
+        <item name="android:fontFamily">@font/poppins_semibold</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+    
+    <style name="DocEaseDialogButton" parent="Widget.Material3.Button.TextButton.Dialog">
+        <item name="android:textColor">@color/docease_primary</item>
+        <item name="android:fontFamily">@font/poppins_medium</item>
+    </style>
+    
+    <!-- Tab Text Appearance for Appointments -->
+    <style name="TabTextAppearance" parent="TextAppearance.Material3.TitleSmall">
+        <item name="fontFamily">@font/poppins_medium</item>
+        <item name="android:fontFamily">@font/poppins_medium</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+    
+    <!-- Circular FAB Shape Appearance -->
+    <style name="ShapeAppearance.DocEase.FAB.Circle" parent="ShapeAppearance.Material3.Corner.Full">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+    
+    <!-- Circle Image View Shape -->
+    <style name="CircleImageView" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+    
+    <!-- Rounded Corner 16dp for Doctor Photo -->
+    <style name="RoundedCorner16" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">16dp</item>
+    </style>
+    
+    <!-- Rounded Corner 12dp -->
+    <style name="RoundedCorner12" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">12dp</item>
+    </style>
+    
+    <!-- Settings Dialog Theme -->
+    <style name="Theme.DocEase.Dialog" parent="ThemeOverlay.Material3.MaterialAlertDialog">
+        <item name="colorPrimary">@color/docease_primary</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorSurface">@color/white</item>
+        <item name="colorOnSurface">@color/text_primary</item>
+        <item name="alertDialogTheme">@style/Theme.DocEase.AlertDialog</item>
+        <item name="materialAlertDialogTitleTextStyle">@style/DialogTitleStyle</item>
+        <item name="materialAlertDialogBodyTextStyle">@style/DialogBodyStyle</item>
+        <item name="buttonBarPositiveButtonStyle">@style/DialogPositiveButton</item>
+        <item name="buttonBarNegativeButtonStyle">@style/DialogNegativeButton</item>
+        <item name="shapeAppearanceOverlay">@style/DialogShapeAppearance</item>
+    </style>
+    
+    <style name="Theme.DocEase.AlertDialog" parent="ThemeOverlay.Material3.MaterialAlertDialog">
+        <item name="colorPrimary">@color/docease_primary</item>
+    </style>
+    
+    <style name="DialogTitleStyle" parent="MaterialAlertDialog.Material3.Title.Text">
+        <item name="android:fontFamily">@font/poppins_semibold</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/text_primary</item>
+    </style>
+    
+    <style name="DialogBodyStyle" parent="MaterialAlertDialog.Material3.Body.Text">
+        <item name="android:fontFamily">@font/poppins</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/text_secondary</item>
+    </style>
+    
+    <style name="DialogPositiveButton" parent="Widget.Material3.Button.TextButton.Dialog">
+        <item name="android:textColor">@color/docease_primary</item>
+        <item name="android:fontFamily">@font/poppins_semibold</item>
+    </style>
+    
+    <style name="DialogNegativeButton" parent="Widget.Material3.Button.TextButton.Dialog">
+        <item name="android:textColor">@color/text_secondary</item>
+        <item name="android:fontFamily">@font/poppins_medium</item>
+    </style>
+    
+    <style name="DialogShapeAppearance" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">20dp</item>
+    </style>
+    
+    <!-- Toolbar text appearance for DocEase -->
+    <style name="TextAppearance.DocEase.Toolbar" parent="TextAppearance.Material3.TitleLarge">
+        <item name="android:fontFamily">@font/poppins_semibold</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/text_primary</item>
+    </style>
+
+    <!-- Bottom Navigation Active Indicator Style -->
+    <style name="BottomNavActiveIndicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
+        <item name="android:color">#E0F7F6</item>
+        <item name="android:width">64dp</item>
+        <item name="android:height">32dp</item>
+    </style>
+</resources>

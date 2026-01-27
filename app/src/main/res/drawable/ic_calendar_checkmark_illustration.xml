@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="140dp"
+    android:height="140dp"
+    android:viewportWidth="140"
+    android:viewportHeight="140">
+
+    <!-- Shadow/Base -->
+    <path
+        android:fillColor="#D0E8E6"
+        android:pathData="M70,130 C100,130 120,125 120,120 C120,115 100,115 70,115 C40,115 20,115 20,120 C20,125 40,130 70,130 Z"/>
+
+    <!-- Calendar Body (Cream/Beige) -->
+    <path
+        android:fillColor="#F8F4ED"
+        android:pathData="M30,35 L110,35 L110,110 Q110,115 105,115 L35,115 Q30,115 30,110 L30,35 Z"/>
+
+    <!-- Calendar Top Edge -->
+    <path
+        android:fillColor="#E8E0D5"
+        android:pathData="M30,35 L110,35 L110,45 L30,45 Z"/>
+
+    <!-- Left Ring Holder -->
+    <path
+        android:fillColor="#D8D0C5"
+        android:pathData="M50,20 Q50,15 55,15 Q60,15 60,20 L60,42 Q60,47 55,47 Q50,47 50,42 Z"/>
+
+    <!-- Right Ring Holder -->
+    <path
+        android:fillColor="#D8D0C5"
+        android:pathData="M80,20 Q80,15 85,15 Q90,15 90,20 L90,42 Q90,47 85,47 Q80,47 80,42 Z"/>
+
+    <!-- Checkmark Circle Background -->
+    <path
+        android:fillColor="#E0F5F3"
+        android:pathData="M70,75 m-25,0 a25,25 0,1 1,50 0 a25,25 0,1 1,-50 0"/>
+
+    <!-- Checkmark -->
+    <path
+        android:fillColor="@color/docease_primary"
+        android:pathData="M58,75 L66,85 L84,62"
+        android:strokeWidth="5"
+        android:strokeColor="@color/docease_primary"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"/>
+
+</vector>

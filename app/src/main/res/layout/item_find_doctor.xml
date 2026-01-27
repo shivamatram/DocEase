@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Doctor list item for Find a Doctor screen -->
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cardDoctor"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="20dp"
+    android:layout_marginBottom="12dp"
+    android:clickable="true"
+    android:focusable="true"
+    app:cardBackgroundColor="@android:color/white"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="2dp"
+    app:strokeWidth="0dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <!-- Doctor Avatar Container -->
+        <FrameLayout
+            android:id="@+id/avatarContainer"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <!-- Doctor Avatar -->
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/ivDoctorAvatar"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:scaleType="centerCrop"
+                app:shapeAppearanceOverlay="@style/CircleImageView"
+                tools:src="@drawable/bg_avatar_placeholder" />
+
+            <!-- Online Indicator -->
+            <View
+                android:id="@+id/viewOnlineIndicator"
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:layout_gravity="bottom|start"
+                android:layout_marginStart="2dp"
+                android:background="@drawable/bg_online_indicator_find"
+                android:visibility="visible" />
+
+        </FrameLayout>
+
+        <!-- Doctor Name -->
+        <TextView
+            android:id="@+id/tvDoctorName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="14dp"
+            android:layout_marginEnd="8dp"
+            android:ellipsize="end"
+            android:fontFamily="@font/poppins_semibold"
+            android:maxLines="1"
+            android:textColor="@color/text_primary"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toStartOf="@id/ivChevron"
+            app:layout_constraintStart_toEndOf="@id/avatarContainer"
+            app:layout_constraintTop_toTopOf="@id/avatarContainer"
+            app:layout_constraintBottom_toTopOf="@id/layoutSpecialtyRating"
+            app:layout_constraintVertical_chainStyle="packed"
+            tools:text="Dr. Sarah Johnson" />
+
+        <!-- Specialty and Rating Row -->
+        <LinearLayout
+            android:id="@+id/layoutSpecialtyRating"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="14dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="8dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toStartOf="@id/ivChevron"
+            app:layout_constraintStart_toEndOf="@id/avatarContainer"
+            app:layout_constraintTop_toBottomOf="@id/tvDoctorName"
+            app:layout_constraintBottom_toBottomOf="@id/avatarContainer">
+
+            <!-- Specialty -->
+            <TextView
+                android:id="@+id/tvSpecialty"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins"
+                android:textColor="@color/docease_primary"
+                android:textSize="13sp"
+                tools:text="Cardiologist" />
+
+            <!-- Dot Separator -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="6dp"
+                android:fontFamily="@font/poppins"
+                android:text="•"
+                android:textColor="@color/text_hint"
+                android:textSize="13sp" />
+
+            <!-- Star Icon -->
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:src="@drawable/ic_star_yellow"
+                android:contentDescription="Rating" />
+
+            <!-- Rating Text -->
+            <TextView
+                android:id="@+id/tvRating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:fontFamily="@font/poppins_medium"
+                android:textColor="@color/text_secondary"
+                android:textSize="13sp"
+                tools:text="4.9 (120)" />
+
+        </LinearLayout>
+
+        <!-- Chevron Arrow -->
+        <ImageView
+            android:id="@+id/ivChevron"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_chevron_right"
+            android:contentDescription="View details"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/text_hint" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>
